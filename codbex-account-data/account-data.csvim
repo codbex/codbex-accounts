@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "table": "CODBEX_ACCOUNT_ACCOUNT",
+      "schema": "PUBLIC",
+      "file": "/codbex-account-data/account.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0.0"
+    }
+  ]
+}
