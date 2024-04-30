@@ -5,12 +5,12 @@
   "title": "Account",
   "description": "The Accounts For Managing An Accounting Application",
   "addOpenApiInfo": true,
+  "fileName": "edm",
+  "dataSource": "DefaultDB",
   "projectName": "codbex-account",
   "workspaceName": "workspace",
   "filePath": "edm.model",
   "templateId": "template-application-angular/template/template.js",
-  "fileName": "edm",
-  "dataSource": "DefaultDB",
   "perspectives": {
     "entities": {
       "views": [
