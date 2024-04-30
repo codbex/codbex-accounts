@@ -1,0 +1,49 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_ACCOUNT_ACCOUNT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ACCOUNT_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ACCOUNT_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": NaN,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ACCOUNT_CODE"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "length": NaN,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "ACCOUNT_ACTIVE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "defaultValue": "1",
+                        "name": "ACCOUNT_NORMAL"
+                    }
+                ]
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-account/gen/ui/launchpad/menu-help.js",
+    "extensionPoint": "codbex-account-menu",
+    "description": "codbex-account - Application Menu"
+}
