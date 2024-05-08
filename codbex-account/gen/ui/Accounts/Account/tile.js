@@ -5,12 +5,12 @@
  */
 exports.getTile = function () {
     return {
-        group: "Entities",
+        group: "Accounts",
         name: "Account",
         caption: "Manage entity Account",
         tooltip: "Account",
         // icon: "file-o",
-        location: "/services/web/codbex-account/gen/ui/entities/index.html",
+        location: "/services/web/codbex-account/gen/ui/Accounts/index.html",
         order: "100",
         groupOrder: "100",
     };

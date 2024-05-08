@@ -232,7 +232,7 @@ export class AccountRepository {
     }
 
     private async triggerEvent(data: AccountEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-account-entities-Account", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-account-Accounts-Account", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -240,6 +240,6 @@ export class AccountRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-account-entities-Account").send(JSON.stringify(data));
+        producer.topic("codbex-account-Accounts-Account").send(JSON.stringify(data));
     }
 }

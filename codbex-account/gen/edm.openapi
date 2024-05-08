@@ -9,9 +9,9 @@ externalDocs:
 servers:
   - url: /services/ts
 tags:
-  - name: entities
+  - name: Accounts
 paths:
-  /codbex-account/gen/api/entities/AccountService.ts:
+  /codbex-account/gen/api/Accounts/AccountService.ts:
     get:
       summary: List Account
       parameters:
@@ -32,7 +32,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Accounts
       responses:
         200:
           description: Successful Request
@@ -63,7 +63,7 @@ paths:
     post:
       summary: Create Account
       tags:
-        - entities
+        - Accounts
       requestBody:
         content:
           application/json:
@@ -95,7 +95,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-account/gen/api/entities/AccountService.ts/{id}:
+  /codbex-account/gen/api/Accounts/AccountService.ts/{id}:
     get:
       summary: Get Account by Id
       parameters:
@@ -106,7 +106,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Accounts
       responses:
         200:
           description: Successful Request
@@ -144,7 +144,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Accounts
       requestBody:
         content:
           application/json:
@@ -192,7 +192,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Accounts
       responses:
         204:
           description: Successful Request
@@ -214,11 +214,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-account/gen/api/entities/AccountService.ts/count:
+  /codbex-account/gen/api/Accounts/AccountService.ts/count:
     get:
       summary: Count the number of Account
       tags:
-        - entities
+        - Accounts
       responses:
         200:
           description: Successful Request
@@ -242,7 +242,7 @@ paths:
     post:
       summary: Count the number of Account by AccountFilterOptions
       tags:
-        - entities
+        - Accounts
       requestBody:
         content:
           application/json:
@@ -324,11 +324,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-account/gen/api/entities/AccountService.ts/search:
+  /codbex-account/gen/api/Accounts/AccountService.ts/search:
     post:
       summary: Search Account by AccountFilterOptions
       tags:
-        - entities
+        - Accounts
       requestBody:
         content:
           application/json:

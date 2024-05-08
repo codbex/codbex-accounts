@@ -114,9 +114,9 @@
                 "menuLabel": "Account",
                 "name": "Account",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveIcon": "/services/web/resources/unicons/puzzle-piece.svg",
+                "perspectiveLabel": "Accounts",
+                "perspectiveName": "Accounts",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "title": "Account",
@@ -124,7 +124,22 @@
                 "type": "PRIMARY"
             }
         ],
-        "perspectives": [],
+        "perspectives": [
+            {
+                "name": "Accounts",
+                "label": "Accounts",
+                "icon": "/services/web/resources/unicons/puzzle-piece.svg",
+                "order": "100",
+                "role": {}
+            },
+            {
+                "name": "JournalEntry",
+                "label": "JournalEntry",
+                "icon": "/services/web/resources/unicons/wind.svg",
+                "order": "110",
+                "role": {}
+            }
+        ],
         "navigations": []
     }
 }

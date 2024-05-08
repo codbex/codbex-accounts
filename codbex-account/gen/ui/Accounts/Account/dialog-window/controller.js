@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-account.entities.Account';
+		messageHubProvider.eventIdPrefix = 'codbex-account.Accounts.Account';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-account/gen/api/entities/AccountService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-account/gen/api/Accounts/AccountService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
 

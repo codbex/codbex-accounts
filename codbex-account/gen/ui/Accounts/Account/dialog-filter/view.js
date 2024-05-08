@@ -4,10 +4,10 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Account-details",
-    label: "Account",
-    link: "/services/web/codbex-account/gen/ui/entities/Account/dialog-window/index.html",
-    perspectiveName: "entities",
+    id: "Account-filter",
+    label: "Account Filter",
+    link: "/services/web/codbex-account/gen/ui/Accounts/Account/dialog-filter/index.html",
+    perspectiveName: "Accounts",
 };
 
 if (typeof exports !== 'undefined') {

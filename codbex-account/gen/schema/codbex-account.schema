@@ -36,6 +36,7 @@
                     },
                     {
                         "type": "INTEGER",
+                        "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
                         "defaultValue": "1",

@@ -12,14 +12,14 @@
   "filePath": "edm.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "entities": {
+    "Accounts": {
       "views": [
         "Account"
       ],
-      "name": "entities",
-      "label": "entities",
+      "name": "Accounts",
+      "label": "Accounts",
       "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
+      "icon": "/services/web/resources/unicons/puzzle-piece.svg",
       "role": ""
     }
   },
@@ -135,7 +135,7 @@
           "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataDefaultValue": "1",
-          "dataLength": "",
+          "dataLength": "20",
           "dataName": "ACCOUNT_NORMAL",
           "dataNullable": false,
           "dataPrecision": "NaN",
@@ -169,9 +169,9 @@
       "menuLabel": "Account",
       "name": "Account",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
+      "perspectiveIcon": "/services/web/resources/unicons/puzzle-piece.svg",
+      "perspectiveLabel": "Accounts",
+      "perspectiveName": "Accounts",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "title": "Account",

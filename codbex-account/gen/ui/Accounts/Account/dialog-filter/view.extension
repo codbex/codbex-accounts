@@ -1,5 +1,5 @@
 {
-    "module": "codbex-account/gen/ui/entities/Account/dialog-filter/view.js",
+    "module": "codbex-account/gen/ui/Accounts/Account/dialog-filter/view.js",
     "extensionPoint": "codbex-account-dialog-window",
     "description": "codbex-account - Application Dialog Window"
 }

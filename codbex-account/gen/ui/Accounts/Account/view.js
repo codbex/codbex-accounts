@@ -8,8 +8,8 @@ const viewData = {
     label: "Account",
     factory: "frame",
     region: "center",
-    link: "/services/web/codbex-account/gen/ui/entities/Account/index.html",
-    perspectiveName: "entities",
+    link: "/services/web/codbex-account/gen/ui/Accounts/Account/index.html",
+    perspectiveName: "Accounts",
 };
 
 if (typeof exports !== 'undefined') {
