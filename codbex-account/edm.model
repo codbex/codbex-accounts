@@ -86,7 +86,7 @@
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataDefaultValue": "1",
-                        "dataLength": "",
+                        "dataLength": "20",
                         "dataName": "ACCOUNT_NORMAL",
                         "dataNullable": "false",
                         "dataPrecision": "NaN",
