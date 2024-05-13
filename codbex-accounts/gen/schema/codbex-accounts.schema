@@ -79,7 +79,7 @@
                 ]
             },
             {
-                "name": "CODBEX_JOURNALENTRYDIRECTIONS",
+                "name": "CODBEX_JOURNALENTRYDIRECTION",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -114,7 +114,7 @@
                 "table": "CODBEX_JOURNALENTRY",
                 "constraintName": "JournalEntry_JournalEntryDirection",
                 "columns": "JOURNALENTRY_JOURNALENTRYDIRECTIONS",
-                "referencedTable": "CODBEX_JOURNALENTRYDIRECTIONS",
+                "referencedTable": "CODBEX_JOURNALENTRYDIRECTION",
                 "referencedColumns": "JOURNALENTRYDIRECTIONS_ID"
             }
         ]

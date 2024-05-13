@@ -276,8 +276,8 @@
                     }
                 ],
                 "caption": "Manage entity JournalEntryDirections",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}JOURNALENTRYDIRECTIONS\"",
-                "dataName": "JOURNALENTRYDIRECTIONS",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}JOURNALENTRYDIRECTION\"",
+                "dataName": "JOURNALENTRYDIRECTION",
                 "dataQuery": "",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
@@ -293,7 +293,7 @@
                 "perspectiveRole": "",
                 "title": "JournalEntryDirections",
                 "tooltip": "JournalEntryDirections",
-                "type": "PRIMARY"
+                "type": "SETTING"
             }
         ],
         "perspectives": [

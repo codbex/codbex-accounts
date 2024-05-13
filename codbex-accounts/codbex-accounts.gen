@@ -404,8 +404,8 @@
         }
       ],
       "caption": "Manage entity JournalEntryDirections",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_JOURNALENTRYDIRECTIONS\"",
-      "dataName": "JOURNALENTRYDIRECTIONS",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_JOURNALENTRYDIRECTION\"",
+      "dataName": "JOURNALENTRYDIRECTION",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE",
@@ -421,7 +421,7 @@
       "perspectiveRole": "",
       "title": "JournalEntryDirections",
       "tooltip": "JournalEntryDirections",
-      "type": "PRIMARY",
+      "type": "SETTING",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [

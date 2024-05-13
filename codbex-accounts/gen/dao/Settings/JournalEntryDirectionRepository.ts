@@ -72,7 +72,7 @@ interface JournalEntryDirectionUpdateEntityEvent extends JournalEntryDirectionEn
 export class JournalEntryDirectionRepository {
 
     private static readonly DEFINITION = {
-        table: "CODBEX_JOURNALENTRYDIRECTIONS",
+        table: "CODBEX_JOURNALENTRYDIRECTION",
         properties: [
             {
                 name: "Id",
@@ -109,7 +109,7 @@ export class JournalEntryDirectionRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_JOURNALENTRYDIRECTIONS",
+            table: "CODBEX_JOURNALENTRYDIRECTION",
             entity: entity,
             key: {
                 name: "Id",
@@ -125,7 +125,7 @@ export class JournalEntryDirectionRepository {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_JOURNALENTRYDIRECTIONS",
+            table: "CODBEX_JOURNALENTRYDIRECTION",
             entity: entity,
             previousEntity: previousEntity,
             key: {
@@ -156,7 +156,7 @@ export class JournalEntryDirectionRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_JOURNALENTRYDIRECTIONS",
+            table: "CODBEX_JOURNALENTRYDIRECTION",
             entity: entity,
             key: {
                 name: "Id",
@@ -171,7 +171,7 @@ export class JournalEntryDirectionRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_JOURNALENTRYDIRECTIONS"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_JOURNALENTRYDIRECTION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;
