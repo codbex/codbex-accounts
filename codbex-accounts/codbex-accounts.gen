@@ -18,7 +18,7 @@
       ],
       "name": "Accounts",
       "label": "Accounts",
-      "order": "100",
+      "order": "90",
       "icon": "/services/web/resources/unicons/puzzle-piece.svg",
       "role": ""
     },
@@ -28,7 +28,7 @@
       ],
       "name": "JournalEntry",
       "label": "JournalEntry",
-      "order": "110",
+      "order": "100",
       "icon": "/services/web/resources/unicons/wind.svg",
       "role": ""
     },
@@ -38,7 +38,7 @@
       ],
       "name": "Settings",
       "label": "Settings",
-      "order": "90",
+      "order": "110",
       "icon": "/services/web/resources/unicons/setting.svg",
       "role": ""
     }
@@ -192,7 +192,7 @@
       "perspectiveIcon": "/services/web/resources/unicons/puzzle-piece.svg",
       "perspectiveLabel": "Accounts",
       "perspectiveName": "Accounts",
-      "perspectiveOrder": "100",
+      "perspectiveOrder": "90",
       "perspectiveRole": "",
       "title": "Account",
       "tooltip": "Account",
@@ -335,7 +335,7 @@
       "perspectiveIcon": "/services/web/resources/unicons/wind.svg",
       "perspectiveLabel": "JournalEntry",
       "perspectiveName": "JournalEntry",
-      "perspectiveOrder": "110",
+      "perspectiveOrder": "100",
       "perspectiveRole": "",
       "title": "JournalEntry",
       "tooltip": "JournalEntry",
@@ -417,7 +417,7 @@
       "perspectiveIcon": "/services/web/resources/unicons/setting.svg",
       "perspectiveLabel": "Settings",
       "perspectiveName": "Settings",
-      "perspectiveOrder": "90",
+      "perspectiveOrder": "110",
       "perspectiveRole": "",
       "title": "JournalEntryDirections",
       "tooltip": "JournalEntryDirections",

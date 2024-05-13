@@ -7,7 +7,7 @@ const perspectiveData = {
 	id: 'Accounts',
 	name: 'Accounts',
 	link: '/services/web/codbex-accounts/gen/ui/Accounts/index.html',
-	order: 100,
+	order: 90,
 	icon: '/services/web/resources/unicons/puzzle-piece.svg',
 };
 

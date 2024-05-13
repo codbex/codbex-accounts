@@ -7,7 +7,7 @@ const perspectiveData = {
 	id: 'JournalEntry',
 	name: 'JournalEntry',
 	link: '/services/web/codbex-accounts/gen/ui/JournalEntry/index.html',
-	order: 110,
+	order: 100,
 	icon: '/services/web/resources/unicons/wind.svg',
 };
 
