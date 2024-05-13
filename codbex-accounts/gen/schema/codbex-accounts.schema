@@ -43,6 +43,79 @@
                         "name": "ACCOUNT_NORMAL"
                     }
                 ]
+            },
+            {
+                "name": "CODBEX_JOURNALENTRY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "JOURNALENTRY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "JOURNALENTRY_DATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "JOURNALENTRY_ACCOUNT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "JOURNALENTRY_JOURNALENTRYDIRECTIONS"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_JOURNALENTRYDIRECTIONS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "JOURNALENTRYDIRECTIONS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "JOURNALENTRYDIRECTIONS_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "JournalEntry_Account",
+                "type": "foreignKey",
+                "table": "CODBEX_JOURNALENTRY",
+                "constraintName": "JournalEntry_Account",
+                "columns": "JOURNALENTRY_ACCOUNT",
+                "referencedTable": "CODBEX_ACCOUNT",
+                "referencedColumns": "ACCOUNT_ID"
+            },
+            {
+                "name": "JournalEntry_JournalEntryDirection",
+                "type": "foreignKey",
+                "table": "CODBEX_JOURNALENTRY",
+                "constraintName": "JournalEntry_JournalEntryDirection",
+                "columns": "JOURNALENTRY_JOURNALENTRYDIRECTIONS",
+                "referencedTable": "CODBEX_JOURNALENTRYDIRECTIONS",
+                "referencedColumns": "JOURNALENTRYDIRECTIONS_ID"
             }
         ]
     },
