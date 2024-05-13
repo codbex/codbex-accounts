@@ -93,10 +93,14 @@ interface AccountEntityEvent {
     }
 }
 
+interface AccountUpdateEntityEvent extends AccountEntityEvent {
+    readonly previousEntity: AccountEntity;
+}
+
 export class AccountRepository {
 
     private static readonly DEFINITION = {
-        table: "CODBEX_ACCOUNT_ACCOUNT",
+        table: "CODBEX_ACCOUNT",
         properties: [
             {
                 name: "Id",
@@ -159,7 +163,7 @@ export class AccountRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_ACCOUNT_ACCOUNT",
+            table: "CODBEX_ACCOUNT",
             entity: entity,
             key: {
                 name: "Id",
@@ -172,11 +176,13 @@ export class AccountRepository {
 
     public update(entity: AccountUpdateEntity): void {
         EntityUtils.setBoolean(entity, "Active");
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_ACCOUNT_ACCOUNT",
+            table: "CODBEX_ACCOUNT",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "ACCOUNT_ID",
@@ -205,7 +211,7 @@ export class AccountRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_ACCOUNT_ACCOUNT",
+            table: "CODBEX_ACCOUNT",
             entity: entity,
             key: {
                 name: "Id",
@@ -220,7 +226,7 @@ export class AccountRepository {
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ACCOUNT_ACCOUNT"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_ACCOUNT"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;
@@ -231,8 +237,8 @@ export class AccountRepository {
         return 0;
     }
 
-    private async triggerEvent(data: AccountEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-account-Accounts-Account", ["trigger"]);
+    private async triggerEvent(data: AccountEntityEvent | AccountUpdateEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-accounts-Accounts-Account", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -240,6 +246,6 @@ export class AccountRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-account-Accounts-Account").send(JSON.stringify(data));
+        producer.topic("codbex-accounts-Accounts-Account").send(JSON.stringify(data));
     }
 }

@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-account.Accounts.Account';
+		messageHubProvider.eventIdPrefix = 'codbex-accounts.Accounts.Account';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-account/gen/api/Accounts/AccountService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-accounts/gen/api/Accounts/AccountService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
 
@@ -12,7 +12,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.dataLimit = 20;
 
 		//-----------------Custom Actions-------------------//
-		Extensions.get('dialogWindow', 'codbex-account-custom-action').then(function (response) {
+		Extensions.get('dialogWindow', 'codbex-accounts-custom-action').then(function (response) {
 			$scope.pageActions = response.filter(e => e.perspective === "Accounts" && e.view === "Account" && (e.type === "page" || e.type === undefined));
 			$scope.entityActions = response.filter(e => e.perspective === "Accounts" && e.view === "Account" && e.type === "entity");
 		});

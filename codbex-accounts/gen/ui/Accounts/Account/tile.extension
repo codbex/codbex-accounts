@@ -1,1 +1,1 @@
-{"module":"codbex-account/gen/ui/Accounts/Account/tile.js","extensionPoint":"codbex-account-tile","description":"codbex-account - Application Tile"}
+{"module":"codbex-accounts/gen/ui/Accounts/Account/tile.js","extensionPoint":"codbex-accounts-tile","description":"codbex-accounts - Application Tile"}

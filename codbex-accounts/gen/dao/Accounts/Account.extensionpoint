@@ -1,4 +1,4 @@
 {
-    "name": "codbex-account-Accounts-Account",
-    "description": "Extension Point for the codbex-account-Accounts-Account entity"
+    "name": "codbex-accounts-Accounts-Account",
+    "description": "Extension Point for the codbex-accounts-Accounts-Account entity"
 }

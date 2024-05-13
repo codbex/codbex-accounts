@@ -1,4 +1,4 @@
 {
-    "name": "codbex-account-menu",
-    "description": "codbex-account - Extension Point for the Application Main Menu"
+    "name": "codbex-accounts-menu",
+    "description": "codbex-accounts - Extension Point for the Application Main Menu"
 }

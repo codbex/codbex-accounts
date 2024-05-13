@@ -1,4 +1,4 @@
 {
-    "name": "codbex-account-perspective",
-    "description": "codbex-account - Extension Point for the Application Perspective Providers"
+    "name": "codbex-accounts-perspective",
+    "description": "codbex-accounts - Extension Point for the Application Perspective Providers"
 }

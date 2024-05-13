@@ -1,16 +1,16 @@
 {
-  "tablePrefix": "CODBEX_ACCOUNT_",
-  "brand": "Codbex",
+  "tablePrefix": "CODBEX_",
+  "brand": "codbex",
   "brandUrl": "https://www.codbex.com/",
   "title": "Account",
-  "description": "The Accounts For Managing An Accounting Application",
+  "description": "Accounts for an accounting software",
   "addOpenApiInfo": true,
-  "fileName": "edm",
-  "dataSource": "DefaultDB",
-  "projectName": "codbex-account",
+  "projectName": "codbex-accounts",
   "workspaceName": "workspace",
-  "filePath": "edm.model",
+  "filePath": "codbex-accounts.model",
   "templateId": "template-application-angular/template/template.js",
+  "fileName": "codbex-accounts",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Accounts": {
       "views": [
@@ -159,7 +159,7 @@
         }
       ],
       "caption": "Manage entity Account",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ACCOUNT_ACCOUNT\"",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ACCOUNT\"",
       "dataName": "ACCOUNT",
       "dataQuery": "",
       "icon": "/services/web/resources/unicons/file.svg",

@@ -1,4 +1,4 @@
 {
-    "name": "codbex-account-dialog-window",
-    "description": "codbex-account - Extension Point for the Application Dialog Window Providers"
+    "name": "codbex-accounts-dialog-window",
+    "description": "codbex-accounts - Extension Point for the Application Dialog Window Providers"
 }

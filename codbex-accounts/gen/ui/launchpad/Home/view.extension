@@ -1,5 +1,5 @@
 {
-    "module": "codbex-account/gen/ui/launchpad/Home/view.js",
-    "extensionPoint": "codbex-account-view",
-    "description": "codbex-account - Application View"
+    "module": "codbex-accounts/gen/ui/launchpad/Home/view.js",
+    "extensionPoint": "codbex-accounts-view",
+    "description": "codbex-accounts - Application View"
 }

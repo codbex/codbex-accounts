@@ -2,7 +2,7 @@
     "schema": {
         "structures": [
             {
-                "name": "CODBEX_ACCOUNT_ACCOUNT",
+                "name": "CODBEX_ACCOUNT",
                 "type": "TABLE",
                 "columns": [
                     {

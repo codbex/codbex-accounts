@@ -1,1 +1,1 @@
-{"module":"codbex-account/gen/ui/Accounts/Account/view.js","extensionPoint":"codbex-account-view","description":"codbex-account - Application View"}
+{"module":"codbex-accounts/gen/ui/Accounts/Account/view.js","extensionPoint":"codbex-accounts-view","description":"codbex-accounts - Application View"}

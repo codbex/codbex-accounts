@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Account - OpenAPI 3.0
   version: 1.0.0
-  description: The Accounts For Managing An Accounting Application
+  description: Accounts for an accounting software
 externalDocs:
   description: Find out more about Eclipse Dirigible
   url: https://dirigible.io
@@ -11,7 +11,7 @@ servers:
 tags:
   - name: Accounts
 paths:
-  /codbex-account/gen/api/Accounts/AccountService.ts:
+  /codbex-accounts/gen/api/Accounts/AccountService.ts:
     get:
       summary: List Account
       parameters:
@@ -95,7 +95,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-account/gen/api/Accounts/AccountService.ts/{id}:
+  /codbex-accounts/gen/api/Accounts/AccountService.ts/{id}:
     get:
       summary: Get Account by Id
       parameters:
@@ -214,7 +214,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-account/gen/api/Accounts/AccountService.ts/count:
+  /codbex-accounts/gen/api/Accounts/AccountService.ts/count:
     get:
       summary: Count the number of Account
       tags:
@@ -324,7 +324,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-account/gen/api/Accounts/AccountService.ts/search:
+  /codbex-accounts/gen/api/Accounts/AccountService.ts/search:
     post:
       summary: Search Account by AccountFilterOptions
       tags:

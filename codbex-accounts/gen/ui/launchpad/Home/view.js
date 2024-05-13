@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "codbex-account-home-launchpad",
+    id: "codbex-accounts-home-launchpad",
     label: "Home Launchpad",
     factory: "frame",
     region: "center",
-    link: "/services/web/codbex-account/gen/ui/launchpad/Home/index.html",
+    link: "/services/web/codbex-accounts/gen/ui/launchpad/Home/index.html",
     isLaunchpad: true,
 };
 

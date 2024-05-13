@@ -1,4 +1,4 @@
 {
-    "name": "codbex-account-view",
-    "description": "codbex-account - Extension Point for the Application View Providers"
+    "name": "codbex-accounts-view",
+    "description": "codbex-accounts - Extension Point for the Application View Providers"
 }

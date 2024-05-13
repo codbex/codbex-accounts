@@ -1,6 +1,6 @@
 angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-account.Accounts.Account';
+		messageHubProvider.eventIdPrefix = 'codbex-accounts.Accounts.Account';
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
@@ -36,19 +36,19 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
 			}
-			if (entity.Code) {
+			if (entity.Code !== undefined) {
 				filter.$filter.equals.Code = entity.Code;
 			}
-			if (entity.Active) {
+			if (entity.Active !== undefined && entity.isActiveIndeterminate === false) {
 				filter.$filter.equals.Active = entity.Active;
 			}
-			if (entity.Normal) {
+			if (entity.Normal !== undefined) {
 				filter.$filter.equals.Normal = entity.Normal;
 			}
 			messageHub.postMessage("entitySearch", {
