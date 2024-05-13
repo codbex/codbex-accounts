@@ -3,7 +3,7 @@
     {
       "table": "CODBEX_ACCOUNT",
       "schema": "PUBLIC",
-      "file": "/codbex-account-data/Account.csv",
+      "file": "/codbex-accounts-data/Account.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -14,7 +14,7 @@
     {
       "table": "CODBEX_JOURNALENTRYDIRECTION",
       "schema": "PUBLIC",
-      "file": "/codbex-account-data/JournalEntryDirection.csv",
+      "file": "/codbex-accounts-data/JournalEntryDirection.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
