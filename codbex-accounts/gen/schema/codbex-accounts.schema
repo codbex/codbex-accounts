@@ -57,8 +57,9 @@
                         "name": "JOURNALENTRY_ID"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 20,
+                        "type": "DATE",
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "JOURNALENTRY_DATE"
                     },
@@ -86,7 +87,8 @@
                         "type": "INTEGER",
                         "length": 0,
                         "primaryKey": true,
-                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "JOURNALENTRYDIRECTIONS_ID"
                     },

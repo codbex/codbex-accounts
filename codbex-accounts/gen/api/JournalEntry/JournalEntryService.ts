@@ -119,9 +119,6 @@ class JournalEntryService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Date?.length > 20) {
-            throw new ValidationError(`The 'Date' exceeds the maximum length of [20] characters`);
-        }
         if (entity.Account === null || entity.Account === undefined) {
             throw new ValidationError(`The 'Account' property is required, provide a valid value`);
         }

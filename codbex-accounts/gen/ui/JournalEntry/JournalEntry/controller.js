@@ -92,6 +92,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						messageHub.showAlertError("JournalEntry", `Unable to list/filter JournalEntry: '${response.message}'`);
 						return;
 					}
+
+					response.data.forEach(e => {
+						if (e.Date) {
+							e.Date = new Date(e.Date);
+						}
+					});
+
 					$scope.data = response.data;
 				});
 			});

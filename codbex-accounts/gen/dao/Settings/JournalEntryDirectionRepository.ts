@@ -79,7 +79,7 @@ export class JournalEntryDirectionRepository {
                 column: "JOURNALENTRYDIRECTIONS_ID",
                 type: "INTEGER",
                 id: true,
-                autoIncrement: true,
+                autoIncrement: false,
             },
             {
                 name: "Name",
