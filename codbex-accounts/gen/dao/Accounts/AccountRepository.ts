@@ -9,14 +9,14 @@ export interface AccountEntity {
     Name: string;
     Code: number;
     Active: boolean;
-    Normal: number;
+    Normal?: number;
 }
 
 export interface AccountCreateEntity {
     readonly Name: string;
     readonly Code: number;
     readonly Active: boolean;
-    readonly Normal: number;
+    readonly Normal?: number;
 }
 
 export interface AccountUpdateEntity extends AccountCreateEntity {
@@ -131,7 +131,6 @@ export class AccountRepository {
                 name: "Normal",
                 column: "ACCOUNT_NORMAL",
                 type: "INTEGER",
-                required: true
             }
         ]
     };
@@ -157,9 +156,6 @@ export class AccountRepository {
 
     public create(entity: AccountCreateEntity): number {
         EntityUtils.setBoolean(entity, "Active");
-        if (entity.Normal === undefined || entity.Normal === null) {
-            (entity as AccountEntity).Normal = 1;
-        }
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

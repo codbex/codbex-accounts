@@ -131,9 +131,6 @@ class AccountService {
         if (entity.Active === null || entity.Active === undefined) {
             throw new ValidationError(`The 'Active' property is required, provide a valid value`);
         }
-        if (entity.Normal === null || entity.Normal === undefined) {
-            throw new ValidationError(`The 'Normal' property is required, provide a valid value`);
-        }
         for (const next of validationModules) {
             next.validate(entity);
         }

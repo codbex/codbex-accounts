@@ -1205,7 +1205,6 @@ components:
         - Name
         - Code
         - Active
-        - Normal
       properties:
         Id:
           type: integer
