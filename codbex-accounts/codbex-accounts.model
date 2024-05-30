@@ -274,7 +274,7 @@
                         "dataPrimaryKey": "false",
                         "dataScale": "NaN",
                         "dataType": "VARCHAR",
-                        "dataUnique": "false",
+                        "dataUnique": "true",
                         "isCalculatedProperty": "false",
                         "isRequiredProperty": "true",
                         "name": "Name",
