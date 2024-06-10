@@ -1,21 +1,21 @@
-ACCOUNT_ID,ACCOUNT_NAME,ACCOUNT_CODE,ACCOUNT_ACTIVE,ACCOUNT_NORMAL
-1,Assets,1000,true,1
-2,Bank,1001,true,1
-3,Cash,1010,true,1
-4,Accounts receivable,1100,true,1
-5,Inventory,1200,true,1
-6,Liabilities,2000,true,-1
-7,Accounts payable,2100,true,-1
-8,Sales tax control,2200,true,-1
-9,Purchase tax control,2201,true,-1
-10,VAT liability,2202,true,-1
-11,Equity,3000,true,-1
-12,Capital,3100,true,-1
-13,Retained earnings,3200,true,-1
-14,Income,4000,true,-1
-15,Sales,4010,true,-1
-16,Shipping,4030,true,-1
-17,Expenses,5000,true,1
-18,Cost of goods sold,5100,true,1
-19,Direct expenses,5200,true,1
-20,Overheads,5300,true,1
+ACCOUNT_ID,ACCOUNT_NAME,ACCOUNT_CODE,ACCOUNT_ACTIVE
+1,Assets,1000,true
+2,Bank,1001,true
+3,Cash,1010,true
+4,Accounts receivable,1100,true
+5,Inventory,1200,true
+6,Liabilities,2000,true
+7,Accounts payable,2100,true
+8,Sales tax control,2200,true
+9,Purchase tax control,2201,true
+10,VAT liability,2202,true
+11,Equity,3000,true
+12,Capital,3100,true
+13,Retained earnings,3200,true
+14,Income,4000,true
+15,Sales,4010,true
+16,Shipping,4030,true
+17,Expenses,5000,true
+18,Cost of goods sold,5100,true
+19,Direct expenses,5200,true
+20,Overheads,5300,true
