@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-accounts/gen/api/Accounts/AccountService.ts";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
+	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
 
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
@@ -107,12 +107,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Account-details", {
 				action: "select",
 				entity: entity,
+				optionsNormal: $scope.optionsNormal,
 			});
 		};
 
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("Account-filter", {
 				entity: $scope.filterEntity,
+				optionsNormal: $scope.optionsNormal,
 			});
 		};
 
@@ -121,6 +123,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Account-details", {
 				action: "create",
 				entity: {},
+				optionsNormal: $scope.optionsNormal,
 			}, null, false);
 		};
 
@@ -128,6 +131,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Account-details", {
 				action: "update",
 				entity: entity,
+				optionsNormal: $scope.optionsNormal,
 			}, null, false);
 		};
 
@@ -159,5 +163,28 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
+
+		//----------------Dropdowns-----------------//
+		$scope.optionsNormal = [];
+
+
+		$http.get("/services/ts/codbex-accounts/gen/api/Settings/JournalEntryDirectionService.ts").then(function (response) {
+			$scope.optionsNormal = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$scope.optionsNormalValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsNormal.length; i++) {
+				if ($scope.optionsNormal[i].value === optionKey) {
+					return $scope.optionsNormal[i].text;
+				}
+			}
+			return null;
+		};
+		//----------------Dropdowns-----------------//
 
 	}]);

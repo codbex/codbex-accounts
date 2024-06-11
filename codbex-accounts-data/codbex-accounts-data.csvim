@@ -1,9 +1,9 @@
 {
   "files": [
     {
-      "table": "CODBEX_ACCOUNT",
+      "table": "CODBEX_JOURNALENTRYDIRECTION",
       "schema": "PUBLIC",
-      "file": "/codbex-accounts-data/Account.csv",
+      "file": "/codbex-accounts-data/JournalEntryDirection.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -12,9 +12,9 @@
       "version": "1.0.0"
     },
     {
-      "table": "CODBEX_JOURNALENTRYDIRECTION",
+      "table": "CODBEX_ACCOUNT",
       "schema": "PUBLIC",
-      "file": "/codbex-accounts-data/JournalEntryDirection.csv",
+      "file": "/codbex-accounts-data/Account.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",

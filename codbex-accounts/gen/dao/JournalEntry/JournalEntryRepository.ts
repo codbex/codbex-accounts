@@ -2,16 +2,17 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+import { EntityUtils } from "../utils/EntityUtils";
 
 export interface JournalEntryEntity {
     readonly Id: number;
-    Date?: string;
+    Date?: Date;
     Account: number;
     JournalEntryDirections: number;
 }
 
 export interface JournalEntryCreateEntity {
-    readonly Date?: string;
+    readonly Date?: Date;
     readonly Account: number;
     readonly JournalEntryDirections: number;
 }
@@ -24,43 +25,43 @@ export interface JournalEntryEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
-            Date?: string | string[];
+            Date?: Date | Date[];
             Account?: number | number[];
             JournalEntryDirections?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
-            Date?: string | string[];
+            Date?: Date | Date[];
             Account?: number | number[];
             JournalEntryDirections?: number | number[];
         };
         contains?: {
             Id?: number;
-            Date?: string;
+            Date?: Date;
             Account?: number;
             JournalEntryDirections?: number;
         };
         greaterThan?: {
             Id?: number;
-            Date?: string;
+            Date?: Date;
             Account?: number;
             JournalEntryDirections?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
-            Date?: string;
+            Date?: Date;
             Account?: number;
             JournalEntryDirections?: number;
         };
         lessThan?: {
             Id?: number;
-            Date?: string;
+            Date?: Date;
             Account?: number;
             JournalEntryDirections?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
-            Date?: string;
+            Date?: Date;
             Account?: number;
             JournalEntryDirections?: number;
         };
@@ -102,7 +103,7 @@ export class JournalEntryRepository {
             {
                 name: "Date",
                 column: "JOURNALENTRY_DATE",
-                type: "VARCHAR",
+                type: "DATE",
             },
             {
                 name: "Account",
@@ -126,15 +127,20 @@ export class JournalEntryRepository {
     }
 
     public findAll(options?: JournalEntryEntityOptions): JournalEntryEntity[] {
-        return this.dao.list(options);
+        return this.dao.list(options).map((e: JournalEntryEntity) => {
+            EntityUtils.setDate(e, "Date");
+            return e;
+        });
     }
 
     public findById(id: number): JournalEntryEntity | undefined {
         const entity = this.dao.find(id);
+        EntityUtils.setDate(entity, "Date");
         return entity ?? undefined;
     }
 
     public create(entity: JournalEntryCreateEntity): number {
+        EntityUtils.setLocalDate(entity, "Date");
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -150,6 +156,7 @@ export class JournalEntryRepository {
     }
 
     public update(entity: JournalEntryUpdateEntity): void {
+        // EntityUtils.setLocalDate(entity, "Date");
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

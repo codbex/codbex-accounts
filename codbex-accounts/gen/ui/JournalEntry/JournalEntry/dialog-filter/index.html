@@ -37,8 +37,8 @@
 	                                name="Date"
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Date"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="20.0 || -1"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
 	                                type="text"
 	                                placeholder="Enter Date">
 	                            </fd-input>

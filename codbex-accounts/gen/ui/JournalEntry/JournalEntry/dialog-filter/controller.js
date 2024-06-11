@@ -11,6 +11,12 @@ angular.module('page', ["ideUI", "ideView"])
 
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
+			if (params?.entity?.DateFrom) {
+				params.entity.DateFrom = new Date(params.entity.DateFrom);
+			}
+			if (params?.entity?.DateTo) {
+				params.entity.DateTo = new Date(params.entity.DateTo);
+			}
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
@@ -41,8 +47,11 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Date) {
-				filter.$filter.contains.Date = entity.Date;
+			if (entity.DateFrom) {
+				filter.$filter.greaterThanOrEqual.Date = entity.DateFrom;
+			}
+			if (entity.DateTo) {
+				filter.$filter.lessThanOrEqual.Date = entity.DateTo;
 			}
 			if (entity.Account !== undefined) {
 				filter.$filter.equals.Account = entity.Account;

@@ -36,10 +36,10 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 20,
+                        "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "defaultValue": "1",
+                        "nullable": true,
                         "name": "ACCOUNT_NORMAL"
                     }
                 ]
@@ -57,8 +57,10 @@
                         "name": "JOURNALENTRY_ID"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DATE",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "JOURNALENTRY_DATE"
                     },
@@ -86,7 +88,8 @@
                         "type": "INTEGER",
                         "length": 0,
                         "primaryKey": true,
-                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "JOURNALENTRYDIRECTIONS_ID"
                     },
@@ -98,6 +101,15 @@
                         "name": "JOURNALENTRYDIRECTIONS_NAME"
                     }
                 ]
+            },
+            {
+                "name": "Account_JournalEntryDirection",
+                "type": "foreignKey",
+                "table": "CODBEX_ACCOUNT",
+                "constraintName": "Account_JournalEntryDirection",
+                "columns": "ACCOUNT_NORMAL",
+                "referencedTable": "CODBEX_JOURNALENTRYDIRECTION",
+                "referencedColumns": "JOURNALENTRYDIRECTIONS_ID"
             },
             {
                 "name": "JournalEntry_Account",

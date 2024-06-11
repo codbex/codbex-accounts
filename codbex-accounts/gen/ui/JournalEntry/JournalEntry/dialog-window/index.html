@@ -39,8 +39,8 @@
 									ng-required="false"
 	                                ng-model="entity.Date"
 	                                ng-readonly="action === 'select'"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="20.0 || -1"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
 	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Date">
