@@ -1,0 +1,35 @@
+name: Release - Module
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-version:
+        description: Release Version
+        required: true
+        default: 1.0.0
+
+run-name: 'version set to ${{ inputs.release-version }} for release'
+
+jobs:
+  main:
+    uses: codbex/codbex-infra/.github/workflows/module-release.yaml@main
+    with:
+      packages: codbex-accounts,codbex-accounts-data
+      packages-build: codbex-accounts
+      release-version: ${{ inputs.release-version }}
+      release-content: |
+        ## codbex-accounts - ${{ inputs.release-version }}
+  
+        Accounts Management Module
+  
+        ## Installation
+  
+        ```
+        npm install @codbex/codbex-accounts@${{ inputs.release-version }}
+        npm install @codbex/codbex-accounts-data@${{ inputs.release-version }}
+        ```
+  
+        ## Access points:
+  
+        - [/services/web/codbex-accounts/gen/](http://localhost:80/services/web/codbex-accounts/gen/) - Admin Panel
+    secrets: inherit
