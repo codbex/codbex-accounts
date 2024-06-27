@@ -1,5 +1,0 @@
-{
-    "module": "codbex-accounts/gen/ui/JournalEntry/JournalEntry/dialog-filter/view.js",
-    "extensionPoint": "codbex-accounts-dialog-window",
-    "description": "codbex-accounts - Application Dialog Window"
-}
