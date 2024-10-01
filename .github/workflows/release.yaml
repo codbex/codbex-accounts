@@ -14,7 +14,7 @@ jobs:
   main:
     uses: codbex/codbex-infra/.github/workflows/module-release.yaml@main
     with:
-      packages: codbex-accounts,codbex-accounts-data
+      packages: codbex-accounts
       packages-build: codbex-accounts
       release-version: ${{ inputs.release-version }}
       release-content: |
@@ -26,7 +26,6 @@ jobs:
   
         ```
         npm install @codbex/codbex-accounts@${{ inputs.release-version }}
-        npm install @codbex/codbex-accounts-data@${{ inputs.release-version }}
         ```
   
         ## Access points:
