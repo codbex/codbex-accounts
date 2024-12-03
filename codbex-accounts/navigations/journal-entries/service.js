@@ -5,7 +5,6 @@ const navigationData = {
     order: 600,
     link: "/services/web/codbex-accounts/gen/ui/JournalEntry/index.html?embedded"
 };
-debugger;
 
 function getNavigation() {
     return navigationData;
