@@ -3,7 +3,7 @@ const navigationData = {
     label: "Accounts",
     group: "configurations",
     order: 700,
-    link: "/services/web/codbex-accounts/gen/ui/Accounts/index.html?embedded"
+    link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/Accounts/index.html?embedded"
 };
 
 function getNavigation() {

@@ -3,7 +3,7 @@ const navigationData = {
     label: "Journal Entry",
     group: "sales",
     order: 600,
-    link: "/services/web/codbex-accounts/gen/ui/JournalEntry/index.html?embedded"
+    link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/index.html?embedded"
 };
 
 function getNavigation() {
