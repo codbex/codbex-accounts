@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "dashboard-navigations",
+    "module": "codbex-accounts/navigations/accounts/service.js",
+    "description": "Accounts Navigation"
+}

@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "dashboard-navigations",
+    "module": "codbex-accounts/navigations/journal-entries/service.js",
+    "description": "Journal Entries Navigation"
+}
