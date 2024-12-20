@@ -1384,7 +1384,8 @@ components:
       type: object
       required:
         - Account
-        - JournalEntryDirections
+        - Directions
+        - Amount
       properties:
         Id:
           type: integer
@@ -1393,7 +1394,10 @@ components:
         Account:
           type: integer
           format: int32
-        JournalEntryDirections:
+        Directions:
+          type: integer
+          format: int32
+        Amount:
           type: integer
           format: int32
     JournalEntryFilterOptions:
@@ -1423,7 +1427,15 @@ components:
                       items:
                         type: integer
                         format: int32
-                JournalEntryDirections:
+                Directions:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Amount:
                   oneOf:
                     - type: integer
                       format: int32
@@ -1452,7 +1464,15 @@ components:
                       items:
                         type: integer
                         format: int32
-                JournalEntryDirections:
+                Directions:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Amount:
                   oneOf:
                     - type: integer
                       format: int32
@@ -1466,7 +1486,8 @@ components:
                 Id:
                 Date:
                 Account:
-                JournalEntryDirections:
+                Directions:
+                Amount:
             greaterThan:
               type: object
               properties:
@@ -1477,7 +1498,10 @@ components:
                 Account:
                   type: integer
                   format: int32
-                JournalEntryDirections:
+                Directions:
+                  type: integer
+                  format: int32
+                Amount:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -1490,7 +1514,10 @@ components:
                 Account:
                   type: integer
                   format: int32
-                JournalEntryDirections:
+                Directions:
+                  type: integer
+                  format: int32
+                Amount:
                   type: integer
                   format: int32
             lessThan:
@@ -1503,7 +1530,10 @@ components:
                 Account:
                   type: integer
                   format: int32
-                JournalEntryDirections:
+                Directions:
+                  type: integer
+                  format: int32
+                Amount:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -1516,17 +1546,20 @@ components:
                 Account:
                   type: integer
                   format: int32
-                JournalEntryDirections:
+                Directions:
+                  type: integer
+                  format: int32
+                Amount:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Date", "Account", "JournalEntryDirections"]
+          example: ["Id", "Date", "Account", "Directions", "Amount"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Date,Account,JournalEntryDirections"
+            example: "Id,Date,Account,Directions,Amount"
         $order:
           type: string
           enum: ["asc", "desc"]

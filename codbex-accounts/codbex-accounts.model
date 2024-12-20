@@ -108,7 +108,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATE"
                     },
                     {
                         "dataName": "JOURNALENTRY_ACCOUNT",
@@ -135,7 +135,7 @@
                         "dataType": "INTEGER",
                         "description": "",
                         "isRequiredProperty": "true",
-                        "name": "JournalEntryDirections",
+                        "name": "Directions",
                         "tooltip": "",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
@@ -147,6 +147,19 @@
                         "relationshipEntityName": "JournalEntryDirection",
                         "relationshipEntityPerspectiveName": "Settings",
                         "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataName": "JOURNALENTRY_AMOUNT",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "isRequiredProperty": "true",
+                        "name": "Amount",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity JournalEntry",

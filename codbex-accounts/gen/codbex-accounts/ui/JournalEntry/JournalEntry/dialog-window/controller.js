@@ -28,7 +28,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsAccount = params.optionsAccount;
-			$scope.optionsJournalEntryDirections = params.optionsJournalEntryDirections;
+			$scope.optionsDirections = params.optionsDirections;
 		}
 
 		$scope.create = function () {
@@ -59,6 +59,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				messageHub.showAlertSuccess("JournalEntry", "JournalEntry successfully updated");
 			});
 		};
+
+		$scope.serviceAccount = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts";
+		$scope.serviceDirections = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts";
 
 		$scope.cancel = function () {
 			$scope.entity = {};

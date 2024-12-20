@@ -8,13 +8,15 @@ export interface JournalEntryEntity {
     readonly Id: number;
     Date?: Date;
     Account: number;
-    JournalEntryDirections: number;
+    Directions: number;
+    Amount?: number;
 }
 
 export interface JournalEntryCreateEntity {
     readonly Date?: Date;
     readonly Account: number;
-    readonly JournalEntryDirections: number;
+    readonly Directions: number;
+    readonly Amount?: number;
 }
 
 export interface JournalEntryUpdateEntity extends JournalEntryCreateEntity {
@@ -27,43 +29,50 @@ export interface JournalEntryEntityOptions {
             Id?: number | number[];
             Date?: Date | Date[];
             Account?: number | number[];
-            JournalEntryDirections?: number | number[];
+            Directions?: number | number[];
+            Amount?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Date?: Date | Date[];
             Account?: number | number[];
-            JournalEntryDirections?: number | number[];
+            Directions?: number | number[];
+            Amount?: number | number[];
         };
         contains?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
+            Amount?: number;
         };
         greaterThan?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
+            Amount?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
+            Amount?: number;
         };
         lessThan?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
+            Amount?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
+            Amount?: number;
         };
     },
     $select?: (keyof JournalEntryEntity)[],
@@ -112,10 +121,15 @@ export class JournalEntryRepository {
                 required: true
             },
             {
-                name: "JournalEntryDirections",
+                name: "Directions",
                 column: "JOURNALENTRY_JOURNALENTRYDIRECTIONS",
                 type: "INTEGER",
                 required: true
+            },
+            {
+                name: "Amount",
+                column: "JOURNALENTRY_AMOUNT",
+                type: "INTEGER",
             }
         ]
     };

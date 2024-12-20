@@ -122,8 +122,11 @@ class JournalEntryService {
         if (entity.Account === null || entity.Account === undefined) {
             throw new ValidationError(`The 'Account' property is required, provide a valid value`);
         }
-        if (entity.JournalEntryDirections === null || entity.JournalEntryDirections === undefined) {
-            throw new ValidationError(`The 'JournalEntryDirections' property is required, provide a valid value`);
+        if (entity.Directions === null || entity.Directions === undefined) {
+            throw new ValidationError(`The 'Directions' property is required, provide a valid value`);
+        }
+        if (entity.Amount === null || entity.Amount === undefined) {
+            throw new ValidationError(`The 'Amount' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);
