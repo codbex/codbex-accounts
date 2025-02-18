@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JournalEntry",
+    id: "JournalEntry-details",
     label: "JournalEntry",
     factory: "frame",
-    region: "left",
-    link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/index.html",
+    region: "center",
+    link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/main-details/index.html",
     perspectiveName: "JournalEntry",
 };
 

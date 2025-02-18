@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryService.ts";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
+	.controller('PageController', ['$scope',  '$http', 'messageHub', 'ViewParameters', 'entityApi', function ($scope,  $http, messageHub, ViewParameters, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
@@ -59,6 +59,31 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				messageHub.showAlertSuccess("JournalEntry", "JournalEntry successfully updated");
 			});
 		};
+
+		$scope.serviceAccount = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts";
+		
+		$scope.optionsAccount = [];
+		
+		$http.get("/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts").then(function (response) {
+			$scope.optionsAccount = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+		$scope.serviceJournalEntryDirections = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts";
+		
+		$scope.optionsJournalEntryDirections = [];
+		
+		$http.get("/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts").then(function (response) {
+			$scope.optionsJournalEntryDirections = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 
 		$scope.cancel = function () {
 			$scope.entity = {};
