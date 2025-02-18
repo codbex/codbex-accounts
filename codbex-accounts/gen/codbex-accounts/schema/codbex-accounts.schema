@@ -7,7 +7,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -34,7 +33,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -42,18 +40,15 @@
                     },
                     {
                         "type": "DATE",
-                        "length": 20,
                         "nullable": true,
                         "name": "JOURNALENTRY_DATE"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "JOURNALENTRY_ACCOUNT"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "JOURNALENTRY_JOURNALENTRYDIRECTIONS"
                     }
                 ]
@@ -64,7 +59,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "nullable": true,
                         "name": "JOURNALENTRYDIRECTIONS_ID"
