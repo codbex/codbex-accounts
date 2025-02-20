@@ -1,8 +1,8 @@
 const navigationData = {
     id: 'journal-entry-navigation',
     label: "Journal Entry",
-    group: "sales",
-    order: 600,
+    group: "accounts",
+    order: 100,
     link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/index.html?embedded"
 };
 

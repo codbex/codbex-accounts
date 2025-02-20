@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "center",
     link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/main-details/index.html",
-    perspectiveName: "JournalEntry",
+    perspectiveName: "JournalEntry"
 };
 
 if (typeof exports !== 'undefined') {

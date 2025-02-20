@@ -1,1 +1,5 @@
-{"module":"codbex-accounts/gen/codbex-accounts/ui/Accounts/perspective.js","extensionPoint":"portal","description":"codbex-accounts - Perspective - Accounts"}
+{
+    "module": "codbex-accounts/gen/codbex-accounts/ui/Accounts/perspective.js",
+    "extensionPoint": "portal",
+    "description": "codbex-accounts - Perspective - Accounts"
+}

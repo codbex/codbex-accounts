@@ -9,13 +9,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
-		$scope.dataOffset = 0;
-		$scope.dataLimit = 10;
-		$scope.action = "select";
+		$scope.dataLimit = 20;
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-accounts-custom-action').then(function (response) {
 			$scope.pageActions = response.filter(e => e.perspective === "Accounts" && e.view === "Account" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "Accounts" && e.view === "Account" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (action) {
@@ -27,35 +26,33 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action
 			);
 		};
+
+		$scope.triggerEntityAction = function (action) {
+			messageHub.showDialogWindow(
+				action.id,
+				{
+					id: $scope.entity.Id
+				},
+				null,
+				true,
+				action
+			);
+		};
 		//-----------------Custom Actions-------------------//
 
-		function refreshData() {
-			$scope.dataReset = true;
-			$scope.dataPage--;
-		}
-
 		function resetPagination() {
-			$scope.dataReset = true;
 			$scope.dataPage = 1;
 			$scope.dataCount = 0;
-			$scope.dataLimit = 10;
+			$scope.dataLimit = 20;
 		}
+		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
-			$scope.$apply(function () {
-				$scope.selectedEntity = null;
-				$scope.action = "select";
-			});
-		});
-
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
@@ -71,10 +68,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
 			}
-			if (!filter) {
-				filter = {};
-			}
-			$scope.selectedEntity = null;
+			$scope.dataPage = pageNumber;
 			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("Account", `Unable to count Account: '${response.message}'`);
@@ -83,25 +77,22 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (response.data) {
 					$scope.dataCount = response.data;
 				}
-				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
-				filter.$offset = ($scope.dataPage - 1) * $scope.dataLimit;
-				filter.$limit = $scope.dataLimit;
-				if ($scope.dataReset) {
-					filter.$offset = 0;
-					filter.$limit = $scope.dataPage * $scope.dataLimit;
+				let offset = (pageNumber - 1) * $scope.dataLimit;
+				let limit = $scope.dataLimit;
+				let request;
+				if (filter) {
+					filter.$offset = offset;
+					filter.$limit = limit;
+					request = entityApi.search(filter);
+				} else {
+					request = entityApi.list(offset, limit);
 				}
-
-				entityApi.search(filter).then(function (response) {
+				request.then(function (response) {
 					if (response.status != 200) {
 						messageHub.showAlertError("Account", `Unable to list/filter Account: '${response.message}'`);
 						return;
 					}
-					if ($scope.data == null || $scope.dataReset) {
-						$scope.data = [];
-						$scope.dataReset = false;
-					}
-					$scope.data = $scope.data.concat(response.data);
-					$scope.dataPage++;
+					$scope.data = response.data;
 				});
 			});
 		};
@@ -109,28 +100,39 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
-			messageHub.postMessage("entitySelected", {
+		};
+
+		$scope.openDetails = function (entity) {
+			$scope.selectedEntity = entity;
+			messageHub.showDialogWindow("Account-details", {
+				action: "select",
 				entity: entity,
-				selectedMainEntityId: entity.Id,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("Account-filter", {
+				entity: $scope.filterEntity,
 			});
 		};
 
 		$scope.createEntity = function () {
 			$scope.selectedEntity = null;
-			$scope.action = "create";
-
-			messageHub.postMessage("createEntity");
+			messageHub.showDialogWindow("Account-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
 		};
 
-		$scope.updateEntity = function () {
-			$scope.action = "update";
-			messageHub.postMessage("updateEntity", {
-				entity: $scope.selectedEntity,
-			});
+		$scope.updateEntity = function (entity) {
+			messageHub.showDialogWindow("Account-details", {
+				action: "update",
+				entity: entity,
+			}, null, false);
 		};
 
-		$scope.deleteEntity = function () {
-			let id = $scope.selectedEntity.Id;
+		$scope.deleteEntity = function (entity) {
+			let id = entity.Id;
 			messageHub.showDialogAsync(
 				'Delete Account?',
 				`Are you sure you want to delete Account? This action cannot be undone.`,
@@ -151,17 +153,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("Account", `Unable to delete Account: '${response.message}'`);
 							return;
 						}
-						refreshData();
 						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
-			});
-		};
-
-		$scope.openFilter = function (entity) {
-			messageHub.showDialogWindow("Account-filter", {
-				entity: $scope.filterEntity,
 			});
 		};
 

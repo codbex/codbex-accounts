@@ -7,9 +7,9 @@ const viewData = {
     id: "Account",
     label: "Account",
     factory: "frame",
-    region: "left",
+    region: "center",
     link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/Accounts/Account/index.html",
-    perspectiveName: "Accounts",
+    perspectiveName: "Accounts"
 };
 
 if (typeof exports !== 'undefined') {

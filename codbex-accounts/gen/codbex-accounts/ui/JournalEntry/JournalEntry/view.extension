@@ -1,1 +1,5 @@
-{"module":"codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/view.js","extensionPoint":"codbex-accounts-view","description":"codbex-accounts - Application View"}
+{
+    "module": "codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/view.js",
+    "extensionPoint": "codbex-accounts-view",
+    "description": "codbex-accounts - Application View"
+}

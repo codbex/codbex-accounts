@@ -1,1 +1,5 @@
-{"module":"codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/dialog-window/view.js","extensionPoint":"dialog-window","description":"codbex-accounts - Application Dialog Window"}
+{
+    "module": "{{projectName}}/gen/{{genFolderName}}/ui/{{perspectiveName}}/{{name}}/dialog-window/view.js",
+    "extensionPoint": "dialog-window",
+    "description": "{{projectName}} - Application Dialog Window"
+}
