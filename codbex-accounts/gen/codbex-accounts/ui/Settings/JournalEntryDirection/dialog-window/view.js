@@ -7,7 +7,7 @@ const viewData = {
     id: "JournalEntryDirection-details",
     label: "JournalEntryDirection",
     link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/Settings/JournalEntryDirection/dialog-window/index.html",
-    perspectiveName: "Settings",
+    perspectiveName: "Settings"
 };
 
 if (typeof exports !== 'undefined') {

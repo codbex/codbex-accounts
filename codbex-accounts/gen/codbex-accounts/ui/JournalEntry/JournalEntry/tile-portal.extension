@@ -1,1 +1,5 @@
-{"module":"codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/tile.js","extensionPoint":"portal-tile","description":"codbex-accounts - Application Tile"}
+{
+    "module": "codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/tile.js",
+    "extensionPoint": "portal-tile",
+    "description": "codbex-accounts - Application Tile"
+}
