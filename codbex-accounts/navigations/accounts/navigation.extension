@@ -1,5 +1,6 @@
 {
     "extensionPoint": "dashboard-navigations",
     "module": "codbex-accounts/navigations/accounts/service.js",
-    "description": "Accounts Navigation"
+    "description": "Accounts Navigation",
+    "role": "codbex-accounts.Accounts.AccountReadOnly,codbex-accounts.Accounts.AccountFullAccess"
 }

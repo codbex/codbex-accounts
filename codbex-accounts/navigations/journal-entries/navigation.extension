@@ -1,5 +1,6 @@
 {
     "extensionPoint": "dashboard-navigations",
     "module": "codbex-accounts/navigations/journal-entries/service.js",
-    "description": "Journal Entries Navigation"
+    "description": "Journal Entries Navigation",
+    "role": "codbex-accounts.JournalEntry.JournalEntryReadOnly,codbex-accounts.JournalEntry.JournalEntryFullAccess"
 }

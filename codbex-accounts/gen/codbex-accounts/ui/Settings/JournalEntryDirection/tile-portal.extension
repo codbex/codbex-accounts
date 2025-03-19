@@ -1,5 +1,6 @@
 {
     "module": "codbex-accounts/gen/codbex-accounts/ui/Settings/JournalEntryDirection/tile.js",
     "extensionPoint": "portal-tile",
-    "description": "codbex-accounts - Application Tile"
+    "description": "codbex-accounts - Application Tile",
+    "role": "codbex-accounts.Settings.JournalEntryDirectionReadOnly,codbex-accounts.Settings.JournalEntryDirectionFullAccess"
 }

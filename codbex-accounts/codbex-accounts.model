@@ -44,7 +44,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataName": "ACCOUNT_ACTIVE",
@@ -57,7 +57,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "CHECKBOX"
                     }
                 ],
                 "caption": "Manage entity Account",
@@ -65,7 +65,7 @@
                 "dataName": "ACCOUNT",
                 "dataQuery": "",
                 "description": "Manage entity Account",
-                "generateDefaultRoles": "false",
+                "generateDefaultRoles": "true",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
@@ -79,6 +79,8 @@
                 "perspectiveName": "Accounts",
                 "perspectiveOrder": "90",
                 "perspectiveRole": "",
+                "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
+                "roleWrite": "codbex-accounts.Accounts.AccountFullAccess",
                 "title": "Account",
                 "tooltip": "Account",
                 "type": "PRIMARY"
@@ -109,7 +111,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATE"
                     },
                     {
                         "dataName": "JOURNALENTRY_ACCOUNT",
@@ -155,7 +157,7 @@
                 "dataName": "JOURNALENTRY",
                 "dataQuery": "",
                 "description": "Manage entity JournalEntry",
-                "generateDefaultRoles": "false",
+                "generateDefaultRoles": "true",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
@@ -169,6 +171,8 @@
                 "perspectiveName": "JournalEntry",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
+                "roleRead": "codbex-accounts.JournalEntry.JournalEntryReadOnly",
+                "roleWrite": "codbex-accounts.JournalEntry.JournalEntryFullAccess",
                 "title": "JournalEntry",
                 "tooltip": "JournalEntry",
                 "type": "PRIMARY"
@@ -210,7 +214,7 @@
                 "dataName": "JOURNALENTRYDIRECTION",
                 "dataQuery": "",
                 "description": "Manage entity JournalEntryDirection",
-                "generateDefaultRoles": "false",
+                "generateDefaultRoles": "true",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
@@ -224,6 +228,8 @@
                 "perspectiveName": "Settings",
                 "perspectiveOrder": "110",
                 "perspectiveRole": "",
+                "roleRead": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
+                "roleWrite": "codbex-accounts.Settings.JournalEntryDirectionFullAccess",
                 "title": "JournalEntryDirections",
                 "tooltip": "JournalEntryDirections",
                 "type": "SETTING"
