@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Account - OpenAPI 3.0
+  title: Accounts Management Module - OpenAPI 3.0
   version: 1.0.0
-  description: Accounts for an accounting software
+  description: Managing Accounts Data
 externalDocs:
   description: Find out more about Eclipse Dirigible
   url: https://dirigible.io

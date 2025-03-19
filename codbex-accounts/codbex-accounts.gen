@@ -2,33 +2,15 @@
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
   "brandUrl": "https://www.codbex.com/",
-  "title": "Account",
-  "description": "Accounts for an accounting software",
-  "addOpenApiInfo": true,
-  "fileName": "codbex-accounts",
-  "dataSource": "DefaultDB",
-  "genFolderName": "codbex-accounts",
-  "roles": [
-    {
-      "entityName": "Account",
-      "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
-      "roleWrite": "codbex-accounts.Accounts.AccountFullAccess"
-    },
-    {
-      "entityName": "JournalEntry",
-      "roleRead": "codbex-accounts.JournalEntry.JournalEntryReadOnly",
-      "roleWrite": "codbex-accounts.JournalEntry.JournalEntryFullAccess"
-    },
-    {
-      "entityName": "JournalEntryDirection",
-      "roleRead": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
-      "roleWrite": "codbex-accounts.Settings.JournalEntryDirectionFullAccess"
-    }
-  ],
+  "title": "Accounts Management Module",
+  "description": "Managing Accounts Data",
   "projectName": "codbex-accounts",
   "workspaceName": "workspace",
   "filePath": "codbex-accounts.model",
   "templateId": "template-application-angular/template/template.js",
+  "fileName": "codbex-accounts",
+  "genFolderName": "codbex-accounts",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Accounts": {
       "views": [
@@ -84,6 +66,23 @@
       "role": ""
     }
   },
+  "roles": [
+    {
+      "entityName": "Account",
+      "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
+      "roleWrite": "codbex-accounts.Accounts.AccountFullAccess"
+    },
+    {
+      "entityName": "JournalEntry",
+      "roleRead": "codbex-accounts.JournalEntry.JournalEntryReadOnly",
+      "roleWrite": "codbex-accounts.JournalEntry.JournalEntryFullAccess"
+    },
+    {
+      "entityName": "JournalEntryDirection",
+      "roleRead": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
+      "roleWrite": "codbex-accounts.Settings.JournalEntryDirectionFullAccess"
+    }
+  ],
   "models": [
     {
       "properties": [
