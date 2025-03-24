@@ -49,7 +49,7 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "JOURNALENTRY_JOURNALENTRYDIRECTIONS"
+                        "name": "JOURNALENTRY_DIRECTIONS"
                     }
                 ]
             },
@@ -84,7 +84,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_JOURNALENTRY",
                 "constraintName": "JournalEntry_JournalEntryDirection",
-                "columns": "JOURNALENTRY_JOURNALENTRYDIRECTIONS",
+                "columns": "JOURNALENTRY_DIRECTIONS",
                 "referencedTable": "CODBEX_JOURNALENTRYDIRECTION",
                 "referencedColumns": "JOURNALENTRYDIRECTIONS_ID"
             }

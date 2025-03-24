@@ -28,7 +28,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsAccount = params.optionsAccount;
-			$scope.optionsJournalEntryDirections = params.optionsJournalEntryDirections;
+			$scope.optionsDirections = params.optionsDirections;
 		}
 
 		$scope.create = function () {
@@ -72,12 +72,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.serviceJournalEntryDirections = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts";
+		$scope.serviceDirections = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts";
 		
-		$scope.optionsJournalEntryDirections = [];
+		$scope.optionsDirections = [];
 		
 		$http.get("/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts").then(function (response) {
-			$scope.optionsJournalEntryDirections = response.data.map(e => {
+			$scope.optionsDirections = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name

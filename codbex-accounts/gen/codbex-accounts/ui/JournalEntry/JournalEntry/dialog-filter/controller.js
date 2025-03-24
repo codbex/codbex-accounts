@@ -21,7 +21,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsAccount = params.optionsAccount;
-			$scope.optionsJournalEntryDirections = params.optionsJournalEntryDirections;
+			$scope.optionsDirections = params.optionsDirections;
 		}
 
 		$scope.filter = function () {
@@ -56,8 +56,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Account !== undefined) {
 				filter.$filter.equals.Account = entity.Account;
 			}
-			if (entity.JournalEntryDirections !== undefined) {
-				filter.$filter.equals.JournalEntryDirections = entity.JournalEntryDirections;
+			if (entity.Directions !== undefined) {
+				filter.$filter.equals.Directions = entity.Directions;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

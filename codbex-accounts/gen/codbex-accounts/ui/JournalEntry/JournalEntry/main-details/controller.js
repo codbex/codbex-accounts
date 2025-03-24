@@ -41,7 +41,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsAccount = [];
-				$scope.optionsJournalEntryDirections = [];
+				$scope.optionsDirections = [];
 				$scope.action = 'select';
 			});
 		});
@@ -53,7 +53,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsAccount = msg.data.optionsAccount;
-				$scope.optionsJournalEntryDirections = msg.data.optionsJournalEntryDirections;
+				$scope.optionsDirections = msg.data.optionsDirections;
 				$scope.action = 'select';
 			});
 		});
@@ -62,7 +62,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsAccount = msg.data.optionsAccount;
-				$scope.optionsJournalEntryDirections = msg.data.optionsJournalEntryDirections;
+				$scope.optionsDirections = msg.data.optionsDirections;
 				$scope.action = 'create';
 			});
 		});
@@ -74,13 +74,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsAccount = msg.data.optionsAccount;
-				$scope.optionsJournalEntryDirections = msg.data.optionsJournalEntryDirections;
+				$scope.optionsDirections = msg.data.optionsDirections;
 				$scope.action = 'update';
 			});
 		});
 
 		$scope.serviceAccount = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts";
-		$scope.serviceJournalEntryDirections = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts";
+		$scope.serviceDirections = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts";
 
 		//-----------------Events-------------------//
 
@@ -120,7 +120,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 			}, null, false);
 		};
-		$scope.createJournalEntryDirections = function () {
+		$scope.createDirections = function () {
 			messageHub.showDialogWindow("JournalEntryDirection-details", {
 				action: "create",
 				entity: {},
@@ -144,10 +144,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				});
 			});
 		};
-		$scope.refreshJournalEntryDirections = function () {
-			$scope.optionsJournalEntryDirections = [];
+		$scope.refreshDirections = function () {
+			$scope.optionsDirections = [];
 			$http.get("/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts").then(function (response) {
-				$scope.optionsJournalEntryDirections = response.data.map(e => {
+				$scope.optionsDirections = response.data.map(e => {
 					return {
 						value: e.Id,
 						text: e.Name

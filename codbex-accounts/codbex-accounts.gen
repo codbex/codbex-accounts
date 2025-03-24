@@ -4,13 +4,30 @@
   "brandUrl": "https://www.codbex.com/",
   "title": "Accounts Management Module",
   "description": "Managing Accounts Data",
+  "fileName": "codbex-accounts",
+  "genFolderName": "codbex-accounts",
+  "dataSource": "DefaultDB",
+  "roles": [
+    {
+      "entityName": "Account",
+      "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
+      "roleWrite": "codbex-accounts.Accounts.AccountFullAccess"
+    },
+    {
+      "entityName": "JournalEntry",
+      "roleRead": "codbex-accounts.JournalEntry.JournalEntryReadOnly",
+      "roleWrite": "codbex-accounts.JournalEntry.JournalEntryFullAccess"
+    },
+    {
+      "entityName": "JournalEntryDirection",
+      "roleRead": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
+      "roleWrite": "codbex-accounts.Settings.JournalEntryDirectionFullAccess"
+    }
+  ],
   "projectName": "codbex-accounts",
   "workspaceName": "workspace",
   "filePath": "codbex-accounts.model",
   "templateId": "template-application-angular/template/template.js",
-  "fileName": "codbex-accounts",
-  "genFolderName": "codbex-accounts",
-  "dataSource": "DefaultDB",
   "perspectives": {
     "Accounts": {
       "views": [
@@ -66,23 +83,6 @@
       "role": ""
     }
   },
-  "roles": [
-    {
-      "entityName": "Account",
-      "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
-      "roleWrite": "codbex-accounts.Accounts.AccountFullAccess"
-    },
-    {
-      "entityName": "JournalEntry",
-      "roleRead": "codbex-accounts.JournalEntry.JournalEntryReadOnly",
-      "roleWrite": "codbex-accounts.JournalEntry.JournalEntryFullAccess"
-    },
-    {
-      "entityName": "JournalEntryDirection",
-      "roleRead": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
-      "roleWrite": "codbex-accounts.Settings.JournalEntryDirectionFullAccess"
-    }
-  ],
   "models": [
     {
       "properties": [
@@ -292,12 +292,12 @@
           "inputRule": ""
         },
         {
-          "dataName": "JOURNALENTRY_JOURNALENTRYDIRECTIONS",
+          "dataName": "JOURNALENTRY_DIRECTIONS",
           "dataNullable": false,
           "dataType": "INTEGER",
           "description": "",
           "isRequiredProperty": true,
-          "name": "JournalEntryDirections",
+          "name": "Directions",
           "tooltip": "",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
@@ -314,7 +314,7 @@
           "dataPrimaryKey": false,
           "dataUnique": false,
           "isCalculatedProperty": false,
-          "widgetLabel": "JournalEntryDirections",
+          "widgetLabel": "Directions",
           "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
@@ -407,12 +407,12 @@
             "inputRule": ""
           },
           {
-            "dataName": "JOURNALENTRY_JOURNALENTRYDIRECTIONS",
+            "dataName": "JOURNALENTRY_DIRECTIONS",
             "dataNullable": false,
             "dataType": "INTEGER",
             "description": "",
             "isRequiredProperty": true,
-            "name": "JournalEntryDirections",
+            "name": "Directions",
             "tooltip": "",
             "widgetDropDownKey": "Id",
             "widgetDropDownValue": "Name",
@@ -429,7 +429,7 @@
             "dataPrimaryKey": false,
             "dataUnique": false,
             "isCalculatedProperty": false,
-            "widgetLabel": "JournalEntryDirections",
+            "widgetLabel": "Directions",
             "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",

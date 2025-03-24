@@ -1384,7 +1384,7 @@ components:
       type: object
       required:
         - Account
-        - JournalEntryDirections
+        - Directions
       properties:
         Id:
           type: integer
@@ -1393,7 +1393,7 @@ components:
         Account:
           type: integer
           format: int32
-        JournalEntryDirections:
+        Directions:
           type: integer
           format: int32
     JournalEntryFilterOptions:
@@ -1423,7 +1423,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                JournalEntryDirections:
+                Directions:
                   oneOf:
                     - type: integer
                       format: int32
@@ -1452,7 +1452,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                JournalEntryDirections:
+                Directions:
                   oneOf:
                     - type: integer
                       format: int32
@@ -1466,7 +1466,7 @@ components:
                 Id:
                 Date:
                 Account:
-                JournalEntryDirections:
+                Directions:
             greaterThan:
               type: object
               properties:
@@ -1477,7 +1477,7 @@ components:
                 Account:
                   type: integer
                   format: int32
-                JournalEntryDirections:
+                Directions:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -1490,7 +1490,7 @@ components:
                 Account:
                   type: integer
                   format: int32
-                JournalEntryDirections:
+                Directions:
                   type: integer
                   format: int32
             lessThan:
@@ -1503,7 +1503,7 @@ components:
                 Account:
                   type: integer
                   format: int32
-                JournalEntryDirections:
+                Directions:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -1516,17 +1516,17 @@ components:
                 Account:
                   type: integer
                   format: int32
-                JournalEntryDirections:
+                Directions:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Date", "Account", "JournalEntryDirections"]
+          example: ["Id", "Date", "Account", "Directions"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Date,Account,JournalEntryDirections"
+            example: "Id,Date,Account,Directions"
         $order:
           type: string
           enum: ["asc", "desc"]

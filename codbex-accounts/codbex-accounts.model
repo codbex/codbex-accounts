@@ -133,12 +133,12 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataName": "JOURNALENTRY_JOURNALENTRYDIRECTIONS",
+                        "dataName": "JOURNALENTRY_DIRECTIONS",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
                         "description": "",
                         "isRequiredProperty": "true",
-                        "name": "JournalEntryDirections",
+                        "name": "Directions",
                         "tooltip": "",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
