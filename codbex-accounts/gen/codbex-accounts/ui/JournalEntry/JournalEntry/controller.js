@@ -120,7 +120,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsAccount: $scope.optionsAccount,
-				optionsJournalEntryDirections: $scope.optionsJournalEntryDirections,
+				optionsDirections: $scope.optionsDirections,
 			});
 		};
 
@@ -131,7 +131,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("createEntity", {
 				entity: {},
 				optionsAccount: $scope.optionsAccount,
-				optionsJournalEntryDirections: $scope.optionsJournalEntryDirections,
+				optionsDirections: $scope.optionsDirections,
 			});
 		};
 
@@ -140,7 +140,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
 				optionsAccount: $scope.optionsAccount,
-				optionsJournalEntryDirections: $scope.optionsJournalEntryDirections,
+				optionsDirections: $scope.optionsDirections,
 			});
 		};
 
@@ -178,13 +178,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("JournalEntry-filter", {
 				entity: $scope.filterEntity,
 				optionsAccount: $scope.optionsAccount,
-				optionsJournalEntryDirections: $scope.optionsJournalEntryDirections,
+				optionsDirections: $scope.optionsDirections,
 			});
 		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsAccount = [];
-		$scope.optionsJournalEntryDirections = [];
+		$scope.optionsDirections = [];
 
 
 		$http.get("/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts").then(function (response) {
@@ -197,7 +197,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		$http.get("/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts").then(function (response) {
-			$scope.optionsJournalEntryDirections = response.data.map(e => {
+			$scope.optionsDirections = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -213,10 +213,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsJournalEntryDirectionsValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsJournalEntryDirections.length; i++) {
-				if ($scope.optionsJournalEntryDirections[i].value === optionKey) {
-					return $scope.optionsJournalEntryDirections[i].text;
+		$scope.optionsDirectionsValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsDirections.length; i++) {
+				if ($scope.optionsDirections[i].value === optionKey) {
+					return $scope.optionsDirections[i].text;
 				}
 			}
 			return null;

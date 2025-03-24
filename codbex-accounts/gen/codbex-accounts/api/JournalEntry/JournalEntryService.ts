@@ -1,6 +1,8 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { JournalEntryRepository, JournalEntryEntityOptions } from "../../dao/JournalEntry/JournalEntryRepository";
+import { user } from "sdk/security"
+import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
@@ -14,6 +16,7 @@ class JournalEntryService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const options: JournalEntryEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
@@ -28,6 +31,7 @@ class JournalEntryService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.checkPermissions("write");
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryService.ts/" + entity.Id);
@@ -41,6 +45,7 @@ class JournalEntryService {
     @Get("/count")
     public count() {
         try {
+            this.checkPermissions("read");
             return this.repository.count();
         } catch (error: any) {
             this.handleError(error);
@@ -50,6 +55,7 @@ class JournalEntryService {
     @Post("/count")
     public countWithFilter(filter: any) {
         try {
+            this.checkPermissions("read");
             return this.repository.count(filter);
         } catch (error: any) {
             this.handleError(error);
@@ -59,6 +65,7 @@ class JournalEntryService {
     @Post("/search")
     public search(filter: any) {
         try {
+            this.checkPermissions("read");
             return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
@@ -68,6 +75,7 @@ class JournalEntryService {
     @Get("/:id")
     public getById(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
@@ -83,6 +91,7 @@ class JournalEntryService {
     @Put("/:id")
     public update(entity: any, ctx: any) {
         try {
+            this.checkPermissions("write");
             entity.Id = ctx.pathParameters.id;
             this.validateEntity(entity);
             this.repository.update(entity);
@@ -95,6 +104,7 @@ class JournalEntryService {
     @Delete("/:id")
     public deleteById(_: any, ctx: any) {
         try {
+            this.checkPermissions("write");
             const id = ctx.pathParameters.id;
             const entity = this.repository.findById(id);
             if (entity) {
@@ -118,12 +128,21 @@ class JournalEntryService {
         }
     }
 
+    private checkPermissions(operationType: string) {
+        if (operationType === "read" && !(user.isInRole("codbex-accounts.JournalEntry.JournalEntryReadOnly") || user.isInRole("codbex-accounts.JournalEntry.JournalEntryFullAccess"))) {
+            throw new ForbiddenError();
+        }
+        if (operationType === "write" && !user.isInRole("codbex-accounts.JournalEntry.JournalEntryFullAccess")) {
+            throw new ForbiddenError();
+        }
+    }
+
     private validateEntity(entity: any): void {
         if (entity.Account === null || entity.Account === undefined) {
             throw new ValidationError(`The 'Account' property is required, provide a valid value`);
         }
-        if (entity.JournalEntryDirections === null || entity.JournalEntryDirections === undefined) {
-            throw new ValidationError(`The 'JournalEntryDirections' property is required, provide a valid value`);
+        if (entity.Directions === null || entity.Directions === undefined) {
+            throw new ValidationError(`The 'Directions' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);

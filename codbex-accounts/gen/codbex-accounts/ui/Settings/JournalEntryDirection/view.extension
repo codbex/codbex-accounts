@@ -1,5 +1,6 @@
 {
     "module": "codbex-accounts/gen/codbex-accounts/ui/Settings/JournalEntryDirection/view.js",
     "extensionPoint": "codbex-accounts-view",
-    "description": "codbex-accounts - Application View"
+    "description": "codbex-accounts - Application View",
+    "role": "codbex-accounts.Settings.JournalEntryDirectionReadOnly,codbex-accounts.Settings.JournalEntryDirectionFullAccess"
 }

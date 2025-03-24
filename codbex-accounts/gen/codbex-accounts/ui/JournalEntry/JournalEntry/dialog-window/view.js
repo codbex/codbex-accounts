@@ -8,6 +8,9 @@ const viewData = {
     label: "JournalEntry",
     link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/dialog-window/index.html",
     perspectiveName: "JournalEntry",
+    roles: [
+        "codbex-accounts.JournalEntry.JournalEntryReadOnly",
+    ]
 };
 
 if (typeof exports !== 'undefined') {

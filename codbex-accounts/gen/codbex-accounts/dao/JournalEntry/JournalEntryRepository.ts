@@ -8,13 +8,13 @@ export interface JournalEntryEntity {
     readonly Id: number;
     Date?: Date;
     Account: number;
-    JournalEntryDirections: number;
+    Directions: number;
 }
 
 export interface JournalEntryCreateEntity {
     readonly Date?: Date;
     readonly Account: number;
-    readonly JournalEntryDirections: number;
+    readonly Directions: number;
 }
 
 export interface JournalEntryUpdateEntity extends JournalEntryCreateEntity {
@@ -27,43 +27,43 @@ export interface JournalEntryEntityOptions {
             Id?: number | number[];
             Date?: Date | Date[];
             Account?: number | number[];
-            JournalEntryDirections?: number | number[];
+            Directions?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Date?: Date | Date[];
             Account?: number | number[];
-            JournalEntryDirections?: number | number[];
+            Directions?: number | number[];
         };
         contains?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
         };
         greaterThan?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
         };
         lessThan?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Date?: Date;
             Account?: number;
-            JournalEntryDirections?: number;
+            Directions?: number;
         };
     },
     $select?: (keyof JournalEntryEntity)[],
@@ -112,8 +112,8 @@ export class JournalEntryRepository {
                 required: true
             },
             {
-                name: "JournalEntryDirections",
-                column: "JOURNALENTRY_JOURNALENTRYDIRECTIONS",
+                name: "Directions",
+                column: "JOURNALENTRY_DIRECTIONS",
                 type: "INTEGER",
                 required: true
             }

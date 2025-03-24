@@ -1,2 +1,26 @@
 [
+    {
+        "name": "codbex-accounts.Accounts.AccountReadOnly",
+        "description": "A role that grants read only permission for Account."
+    },
+    {
+        "name": "codbex-accounts.Accounts.AccountFullAccess",
+        "description": "A role that grants full access for Account."
+    },
+    {
+        "name": "codbex-accounts.JournalEntry.JournalEntryReadOnly",
+        "description": "A role that grants read only permission for JournalEntry."
+    },
+    {
+        "name": "codbex-accounts.JournalEntry.JournalEntryFullAccess",
+        "description": "A role that grants full access for JournalEntry."
+    },
+    {
+        "name": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
+        "description": "A role that grants read only permission for JournalEntryDirection."
+    },
+    {
+        "name": "codbex-accounts.Settings.JournalEntryDirectionFullAccess",
+        "description": "A role that grants full access for JournalEntryDirection."
+    }
 ]
