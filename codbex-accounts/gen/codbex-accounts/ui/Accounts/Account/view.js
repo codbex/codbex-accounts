@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Account",
-    label: "Account",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/Accounts/Account/index.html",
-    perspectiveName: "Accounts"
+    id: 'Account',
+    label: 'Account',
+    region: 'center',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-accounts/gen/codbex-accounts/ui/Accounts/Account/index.html',
+    perspectiveName: 'Accounts'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

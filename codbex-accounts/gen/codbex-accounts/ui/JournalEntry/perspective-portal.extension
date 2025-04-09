@@ -1,5 +1,0 @@
-{
-    "module": "codbex-accounts/gen/codbex-accounts/ui/JournalEntry/perspective.js",
-    "extensionPoint": "portal",
-    "description": "codbex-accounts - Perspective - JournalEntry"
-}

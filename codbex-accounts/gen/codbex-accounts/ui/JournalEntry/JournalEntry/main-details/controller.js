@@ -1,130 +1,156 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-accounts.JournalEntry.JournalEntry';
+angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+	.config(["EntityServiceProvider", (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryService.ts";
-	}])
-	.controller('PageController', ['$scope',  '$http', 'Extensions', 'messageHub', 'entityApi', function ($scope,  $http, Extensions, messageHub, entityApi) {
-
+	.controller('PageController', ($scope, $http, Extensions, EntityService) => {
+		const Dialogs = new DialogHub();
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "JournalEntry Details",
-			create: "Create JournalEntry",
-			update: "Update JournalEntry"
+			select: 'JournalEntry Details',
+			create: 'Create JournalEntry',
+			update: 'Update JournalEntry'
 		};
 		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
-		Extensions.get('dialogWindow', 'codbex-accounts-custom-action').then(function (response) {
-			$scope.entityActions = response.filter(e => e.perspective === "JournalEntry" && e.view === "JournalEntry" && e.type === "entity");
+		Extensions.getWindows(['codbex-accounts-custom-action']).then((response) => {
+			$scope.entityActions = response.data.filter(e => e.perspective === 'JournalEntry' && e.view === 'JournalEntry' && e.type === 'entity');
 		});
 
-		$scope.triggerEntityAction = function (action) {
-			messageHub.showDialogWindow(
-				action.id,
-				{
+		$scope.triggerEntityAction = (action) => {
+			Dialogs.showWindow({
+				hasHeader: true,
+        		title: action.label,
+				path: action.path,
+				params: {
 					id: $scope.entity.Id
 				},
-				null,
-				true,
-				action
-			);
+				closeButton: true
+			});
 		};
 		//-----------------Custom Actions-------------------//
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
-			$scope.$apply(function () {
+		Dialogs.addMessageListener({ topic: 'codbex-accounts.JournalEntry.JournalEntry.clearDetails', handler: () => {
+			$scope.$evalAsync(() => {
 				$scope.entity = {};
 				$scope.optionsAccount = [];
 				$scope.optionsDirections = [];
 				$scope.action = 'select';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("entitySelected", function (msg) {
-			$scope.$apply(function () {
-				if (msg.data.entity.Date) {
-					msg.data.entity.Date = new Date(msg.data.entity.Date);
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-accounts.JournalEntry.JournalEntry.entitySelected', handler: (data) => {
+			$scope.$evalAsync(() => {
+				if (data.entity.Date) {
+					data.entity.Date = new Date(data.entity.Date);
 				}
-				$scope.entity = msg.data.entity;
-				$scope.optionsAccount = msg.data.optionsAccount;
-				$scope.optionsDirections = msg.data.optionsDirections;
+				$scope.entity = data.entity;
+				$scope.optionsAccount = data.optionsAccount;
+				$scope.optionsDirections = data.optionsDirections;
 				$scope.action = 'select';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("createEntity", function (msg) {
-			$scope.$apply(function () {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-accounts.JournalEntry.JournalEntry.createEntity', handler: (data) => {
+			$scope.$evalAsync(() => {
 				$scope.entity = {};
-				$scope.optionsAccount = msg.data.optionsAccount;
-				$scope.optionsDirections = msg.data.optionsDirections;
+				$scope.optionsAccount = data.optionsAccount;
+				$scope.optionsDirections = data.optionsDirections;
 				$scope.action = 'create';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("updateEntity", function (msg) {
-			$scope.$apply(function () {
-				if (msg.data.entity.Date) {
-					msg.data.entity.Date = new Date(msg.data.entity.Date);
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-accounts.JournalEntry.JournalEntry.updateEntity', handler: (data) => {
+			$scope.$evalAsync(() => {
+				if (data.entity.Date) {
+					data.entity.Date = new Date(data.entity.Date);
 				}
-				$scope.entity = msg.data.entity;
-				$scope.optionsAccount = msg.data.optionsAccount;
-				$scope.optionsDirections = msg.data.optionsDirections;
+				$scope.entity = data.entity;
+				$scope.optionsAccount = data.optionsAccount;
+				$scope.optionsDirections = data.optionsDirections;
 				$scope.action = 'update';
 			});
-		});
+		}});
 
-		$scope.serviceAccount = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts";
-		$scope.serviceDirections = "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts";
+		$scope.serviceAccount = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts';
+		$scope.serviceDirections = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts';
 
 		//-----------------Events-------------------//
 
-		$scope.create = function () {
-			entityApi.create($scope.entity).then(function (response) {
-				if (response.status != 201) {
-					messageHub.showAlertError("JournalEntry", `Unable to create JournalEntry: '${response.message}'`);
-					return;
-				}
-				messageHub.postMessage("entityCreated", response.data);
-				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("JournalEntry", "JournalEntry successfully created");
+		$scope.create = () => {
+			EntityService.create($scope.entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-accounts.JournalEntry.JournalEntry.entityCreated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-accounts.JournalEntry.JournalEntry.clearDetails' , data: response.data });
+				Dialogs.showAlert({
+					title: 'JournalEntry',
+					message: 'JournalEntry successfully created',
+					type: AlertTypes.Success
+				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'JournalEntry',
+					message: `Unable to create JournalEntry: '${message}'`,
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.update = function () {
-			entityApi.update($scope.entity.Id, $scope.entity).then(function (response) {
-				if (response.status != 200) {
-					messageHub.showAlertError("JournalEntry", `Unable to update JournalEntry: '${response.message}'`);
-					return;
-				}
-				messageHub.postMessage("entityUpdated", response.data);
-				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("JournalEntry", "JournalEntry successfully updated");
+		$scope.update = () => {
+			EntityService.update($scope.entity.Id, $scope.entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-accounts.JournalEntry.JournalEntry.entityUpdated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-accounts.JournalEntry.JournalEntry.clearDetails', data: response.data });
+				Dialogs.showAlert({
+					title: 'JournalEntry',
+					message: 'JournalEntry successfully updated',
+					type: AlertTypes.Success
+				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'JournalEntry',
+					message: `Unable to create JournalEntry: '${message}'`,
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.cancel = function () {
-			messageHub.postMessage("clearDetails");
+		$scope.cancel = () => {
+			Dialogs.triggerEvent('codbex-accounts.JournalEntry.JournalEntry.clearDetails');
 		};
 		
 		//-----------------Dialogs-------------------//
-		
-		$scope.createAccount = function () {
-			messageHub.showDialogWindow("Account-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.alert = (message) => {
+			if (message) Dialogs.showAlert({
+				title: 'Description',
+				message: message,
+				type: AlertTypes.Information,
+				preformatted: true,
+			});
 		};
-		$scope.createDirections = function () {
-			messageHub.showDialogWindow("JournalEntryDirection-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		
+		$scope.createAccount = () => {
+			Dialogs.showWindow({
+				id: 'Account-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
+		};
+		$scope.createDirections = () => {
+			Dialogs.showWindow({
+				id: 'JournalEntryDirection-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
 
 		//-----------------Dialogs-------------------//
@@ -133,30 +159,40 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 
-		$scope.refreshAccount = function () {
+		$scope.refreshAccount = () => {
 			$scope.optionsAccount = [];
-			$http.get("/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts").then(function (response) {
-				$scope.optionsAccount = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts').then((response) => {
+				$scope.optionsAccount = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Account',
+					message: `Unable to load data: '${message}'`,
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshDirections = function () {
+		$scope.refreshDirections = () => {
 			$scope.optionsDirections = [];
-			$http.get("/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts").then(function (response) {
-				$scope.optionsDirections = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts').then((response) => {
+				$scope.optionsDirections = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Directions',
+					message: `Unable to load data: '${message}'`,
+					type: AlertTypes.Error
 				});
 			});
 		};
 
 		//----------------Dropdowns-----------------//	
-		
-
-	}]);
+	});
