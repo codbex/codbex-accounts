@@ -1,6 +1,0 @@
-{
-    "module": "codbex-accounts/gen/codbex-accounts/ui/Accounts/Account/tile.js",
-    "extensionPoint": "codbex-accounts-tile",
-    "description": "codbex-accounts - Application Tile",
-    "role": "codbex-accounts.Accounts.AccountReadOnly,codbex-accounts.Accounts.AccountFullAccess"
-}

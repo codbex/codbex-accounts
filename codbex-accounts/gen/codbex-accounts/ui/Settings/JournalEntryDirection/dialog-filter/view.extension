@@ -1,6 +1,6 @@
 {
     "module": "codbex-accounts/gen/codbex-accounts/ui/Settings/JournalEntryDirection/dialog-filter/view.js",
-    "extensionPoint": "dialog-window",
+    "extensionPoint": "application-windows",
     "description": "codbex-accounts - Application Dialog Window",
     "role": "codbex-accounts.Settings.JournalEntryDirectionReadOnly,codbex-accounts.Settings.JournalEntryDirectionFullAccess"
 }

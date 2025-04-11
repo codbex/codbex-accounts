@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JournalEntryDirection-details",
-    label: "JournalEntryDirection",
-    link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/Settings/JournalEntryDirection/dialog-window/index.html",
-    perspectiveName: "Settings"
+    id: 'JournalEntryDirection-details',
+    label: 'JournalEntryDirection',
+    path: '/services/web/codbex-accounts/gen/codbex-accounts/ui/Settings/JournalEntryDirection/dialog-window/index.html',
+    perspectiveName: 'Settings'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

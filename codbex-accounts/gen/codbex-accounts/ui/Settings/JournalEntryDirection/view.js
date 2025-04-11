@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "JournalEntryDirection",
-    label: "JournalEntryDirection",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/Settings/JournalEntryDirection/index.html",
-    perspectiveName: "Settings"
+    id: 'JournalEntryDirection',
+    label: 'JournalEntryDirection',
+    region: 'center',
+    lazyLoad: true,
+	autoFocusTab: false,
+    path: '/services/web/codbex-accounts/gen/codbex-accounts/ui/Settings/JournalEntryDirection/index.html',
+    perspectiveName: 'Settings'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

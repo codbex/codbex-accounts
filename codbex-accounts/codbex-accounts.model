@@ -73,10 +73,11 @@
                 "menuKey": "account",
                 "menuLabel": "Account",
                 "name": "Account",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/puzzle-piece.svg",
                 "perspectiveLabel": "Accounts",
                 "perspectiveName": "Accounts",
+                "perspectiveNavId": "configurations-navigation-group",
                 "perspectiveOrder": "90",
                 "perspectiveRole": "",
                 "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
@@ -149,7 +150,7 @@
                         "relationshipName": "JournalEntry_JournalEntryDirection",
                         "relationshipEntityName": "JournalEntryDirection",
                         "relationshipEntityPerspectiveName": "Settings",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveLabel": ""
                     }
                 ],
                 "caption": "Manage entity JournalEntry",
@@ -165,10 +166,11 @@
                 "menuKey": "journalentry",
                 "menuLabel": "JournalEntry",
                 "name": "JournalEntry",
-                "navigationPath": "/Home",
+                "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/wind.svg",
                 "perspectiveLabel": "JournalEntry",
                 "perspectiveName": "JournalEntry",
+                "perspectiveNavId": "accounting-navigation-group",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "roleRead": "codbex-accounts.JournalEntry.JournalEntryReadOnly",
@@ -214,19 +216,22 @@
                 "dataName": "JOURNALENTRYDIRECTION",
                 "dataQuery": "",
                 "description": "Manage entity JournalEntryDirection",
+                "feedPassword": "YWRtaW4=",
+                "feedUsername": "YWRtaW4=",
                 "generateDefaultRoles": "true",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "",
                 "menuIndex": "100",
                 "menuKey": "journalentrydirections",
                 "menuLabel": "JournalEntryDirections",
                 "name": "JournalEntryDirection",
-                "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/setting.svg",
-                "perspectiveLabel": "Settings",
+                "perspectiveHeader": "",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveLabel": "",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "110",
+                "perspectiveNavId": "",
+                "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "roleRead": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
                 "roleWrite": "codbex-accounts.Settings.JournalEntryDirectionFullAccess",
@@ -239,23 +244,16 @@
             {
                 "name": "Accounts",
                 "label": "Accounts",
+                "navId": "configurations-navigation-group",
                 "icon": "/services/web/resources/unicons/puzzle-piece.svg",
-                "order": "90",
-                "role": {}
+                "order": "90"
             },
             {
                 "name": "JournalEntry",
                 "label": "JournalEntry",
+                "navId": "accounting-navigation-group",
                 "icon": "/services/web/resources/unicons/wind.svg",
-                "order": "100",
-                "role": {}
-            },
-            {
-                "name": "Settings",
-                "label": "Settings",
-                "icon": "/services/web/resources/unicons/setting.svg",
-                "order": "110",
-                "role": {}
+                "order": "100"
             }
         ],
         "navigations": []
