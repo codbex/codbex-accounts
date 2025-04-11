@@ -116,7 +116,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.openFilter = (entity) => {
 			Dialogs.showWindow({
-				id: '${property.relationshipEntityName}-details',
+				id: 'JournalEntryDirection-details',
 				params: {
 					entity: $scope.filterEntity,
 				},
@@ -138,7 +138,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.updateEntity = (entity) => {
 			Dialogs.showWindow({
-				id: '${property.relationshipEntityName}-details',
+				id: 'JournalEntryDirection-details',
 				params: {
 					action: 'update',
 					entity: entity,
