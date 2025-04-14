@@ -1,5 +1,0 @@
-{
-    "module": "codbex-accounts/gen/codbex-accounts/ui/Settings/perspective.js",
-    "extensionPoint": "codbex-accounts",
-    "description": "codbex-accounts - Perspective - Settings"
-}

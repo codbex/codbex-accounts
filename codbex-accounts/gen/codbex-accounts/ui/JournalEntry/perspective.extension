@@ -1,5 +1,5 @@
 {
     "module": "codbex-accounts/gen/codbex-accounts/ui/JournalEntry/perspective.js",
-    "extensionPoint": "codbex-accounts",
+    "extensionPoint": "application-perspectives",
     "description": "codbex-accounts - Perspective - JournalEntry"
 }

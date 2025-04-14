@@ -6,15 +6,12 @@
 const viewData = {
     id: "JournalEntry-details",
     label: "JournalEntry",
-    link: "/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/dialog-window/index.html",
+    path: "/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/dialog-window/index.html",
     perspectiveName: "JournalEntry",
     roles: [
         "codbex-accounts.JournalEntry.JournalEntryReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }
