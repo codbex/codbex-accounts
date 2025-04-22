@@ -1,5 +1,5 @@
 {
-    "module": "codbex-accounts/gen/codbex-accounts/ui/Accounts/Account/dialog-filter/view.js",
+    "module": "codbex-accounts/gen/codbex-accounts/ui/Settings/Account/dialog-filter/view.js",
     "extensionPoint": "application-windows",
     "description": "codbex-accounts - Application Dialog Window",
     "role": "codbex-accounts.Accounts.AccountReadOnly,codbex-accounts.Accounts.AccountFullAccess"

@@ -1,12 +1,12 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { AccountRepository, AccountEntityOptions } from "../../dao/Accounts/AccountRepository";
+import { AccountRepository, AccountEntityOptions } from "../../dao/Settings/AccountRepository";
 import { user } from "sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-accounts-Accounts-Account", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-accounts-Settings-Account", ["validate"]);
 
 @Controller
 class AccountService {
@@ -34,7 +34,7 @@ class AccountService {
             this.checkPermissions("write");
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

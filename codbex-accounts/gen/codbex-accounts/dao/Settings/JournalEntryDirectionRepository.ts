@@ -49,7 +49,7 @@ export interface JournalEntryDirectionEntityOptions {
     },
     $select?: (keyof JournalEntryDirectionEntity)[],
     $sort?: string | (keyof JournalEntryDirectionEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -93,7 +93,7 @@ export class JournalEntryDirectionRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(JournalEntryDirectionRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(JournalEntryDirectionRepository.DEFINITION, undefined, dataSource);
     }
 
     public findAll(options?: JournalEntryDirectionEntityOptions): JournalEntryDirectionEntity[] {

@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts';
 	}])
 	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
 		const Dialogs = new DialogHub();
@@ -27,7 +27,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.create(entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-accounts.Accounts.Account.entityCreated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-accounts.Settings.Account.entityCreated', data: response.data });
 				Dialogs.showAlert({
 					title: 'Account',
 					message: 'Account successfully created',
@@ -48,7 +48,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-accounts.Accounts.Account.entityUpdated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-accounts.Settings.Account.entityUpdated', data: response.data });
 				Dialogs.showAlert({
 					title: 'Account',
 					message: 'Account successfully updated',

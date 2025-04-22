@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts';
 	}])
 	.controller('PageController', ($scope, EntityService, Extensions, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -10,8 +10,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-accounts-custom-action']).then((response) => {
-			$scope.pageActions = response.data.filter(e => e.perspective === 'Accounts' && e.view === 'Account' && (e.type === 'page' || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === 'Accounts' && e.view === 'Account' && e.type === 'entity');
+			$scope.pageActions = response.data.filter(e => e.perspective === 'Settings' && e.view === 'Account' && (e.type === 'page' || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === 'Settings' && e.view === 'Account' && e.type === 'entity');
 		});
 
 		$scope.triggerPageAction = (action) => {
@@ -44,13 +44,13 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		Dialogs.addMessageListener({ topic: 'codbex-accounts.Accounts.Account.entityCreated', handler: () => {
+		Dialogs.addMessageListener({ topic: 'codbex-accounts.Settings.Account.entityCreated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-accounts.Accounts.Account.entityUpdated', handler: () => {
+		Dialogs.addMessageListener({ topic: 'codbex-accounts.Settings.Account.entityUpdated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-accounts.Accounts.Account.entitySearch', handler: (data) => {
+		Dialogs.addMessageListener({ topic: 'codbex-accounts.Settings.Account.entitySearch', handler: (data) => {
 			resetPagination();
 			$scope.filter = data.filter;
 			$scope.filterEntity = data.entity;
@@ -164,7 +164,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				if (buttonId === 'delete-btn-yes') {
 					EntityService.delete(id).then((response) => {
 						$scope.loadPage($scope.dataPage, $scope.filter);
-						Dialogs.triggerEvent('codbex-accounts.Accounts.Account.clearDetails');
+						Dialogs.triggerEvent('codbex-accounts.Settings.Account.clearDetails');
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({

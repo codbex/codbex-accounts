@@ -68,7 +68,7 @@ export interface AccountEntityOptions {
     },
     $select?: (keyof AccountEntity)[],
     $sort?: string | (keyof AccountEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -124,7 +124,7 @@ export class AccountRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(AccountRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(AccountRepository.DEFINITION, undefined, dataSource);
     }
 
     public findAll(options?: AccountEntityOptions): AccountEntity[] {
@@ -220,7 +220,7 @@ export class AccountRepository {
     }
 
     private async triggerEvent(data: AccountEntityEvent | AccountUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-accounts-Accounts-Account", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-accounts-Settings-Account", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -228,6 +228,6 @@ export class AccountRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-accounts-Accounts-Account").send(JSON.stringify(data));
+        producer.topic("codbex-accounts-Settings-Account").send(JSON.stringify(data));
     }
 }
