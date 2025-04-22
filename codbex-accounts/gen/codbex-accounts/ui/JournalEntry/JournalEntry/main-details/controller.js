@@ -73,7 +73,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			});
 		}});
 
-		$scope.serviceAccount = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts';
+		$scope.serviceAccount = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts';
 		$scope.serviceDirections = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts';
 
 		//-----------------Events-------------------//
@@ -161,7 +161,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.refreshAccount = () => {
 			$scope.optionsAccount = [];
-			$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts').then((response) => {
+			$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts').then((response) => {
 				$scope.optionsAccount = response.data.map(e => ({
 					value: e.Id,
 					text: e.Name

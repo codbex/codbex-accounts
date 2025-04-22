@@ -7,10 +7,10 @@ const viewData = {
     id: 'Account',
     label: 'Account',
     region: 'center',
-    lazyLoad: false,
-	autoFocusTab: true,
-    path: '/services/web/codbex-accounts/gen/codbex-accounts/ui/Accounts/Account/index.html',
-    perspectiveName: 'Accounts'
+    lazyLoad: true,
+	autoFocusTab: false,
+    path: '/services/web/codbex-accounts/gen/codbex-accounts/ui/Settings/Account/index.html',
+    perspectiveName: 'Settings'
 };
 if (typeof exports !== 'undefined') {
 	exports.getView = () => viewData;

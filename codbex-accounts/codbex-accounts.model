@@ -68,23 +68,23 @@
                 "generateDefaultRoles": "true",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "",
                 "menuIndex": "100",
                 "menuKey": "account",
                 "menuLabel": "Account",
                 "name": "Account",
                 "perspectiveHeader": "",
-                "perspectiveIcon": "/services/web/resources/unicons/puzzle-piece.svg",
-                "perspectiveLabel": "Accounts",
-                "perspectiveName": "Accounts",
-                "perspectiveNavId": "configurations-navigation-group",
-                "perspectiveOrder": "90",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveLabel": "",
+                "perspectiveName": "Settings",
+                "perspectiveNavId": "",
+                "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
                 "roleWrite": "codbex-accounts.Accounts.AccountFullAccess",
                 "title": "Account",
                 "tooltip": "Account",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -130,8 +130,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "JournalEntry_Account",
                         "relationshipEntityName": "Account",
-                        "relationshipEntityPerspectiveName": "Accounts",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveName": "Settings",
+                        "relationshipEntityPerspectiveLabel": ""
                     },
                     {
                         "dataName": "JOURNALENTRY_DIRECTIONS",

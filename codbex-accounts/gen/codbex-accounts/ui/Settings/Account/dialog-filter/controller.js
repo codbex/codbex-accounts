@@ -44,7 +44,7 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		if (entity.Active !== undefined && entity.isActiveIndeterminate === false) {
 			filter.$filter.equals.Active = entity.Active;
 		}
-		Dialogs.postMessage({ topic: 'codbex-accounts.Accounts.Account.entitySearch', data: {
+		Dialogs.postMessage({ topic: 'codbex-accounts.Settings.Account.entitySearch', data: {
 			entity: entity,
 			filter: filter
 		}});

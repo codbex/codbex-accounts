@@ -193,7 +193,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.optionsDirections = [];
 
 
-		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts').then((response) => {
+		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts').then((response) => {
 			$scope.optionsAccount = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name

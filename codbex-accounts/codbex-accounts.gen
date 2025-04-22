@@ -29,16 +29,17 @@
   "filePath": "codbex-accounts.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "Accounts": {
+    "Settings": {
       "views": [
-        "Account"
+        "Account",
+        "JournalEntryDirection"
       ],
-      "name": "Accounts",
-      "label": "Accounts",
+      "name": "Settings",
+      "label": "Settings",
       "header": "",
-      "order": "90",
-      "navId": "configurations-navigation-group",
-      "icon": "/services/web/resources/unicons/puzzle-piece.svg",
+      "order": "100",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     },
     "JournalEntry": {
@@ -70,18 +71,6 @@
       "order": "100",
       "navId": "accounting-navigation-group",
       "icon": "/services/web/resources/unicons/wind.svg",
-      "role": ""
-    },
-    "Settings": {
-      "views": [
-        "JournalEntryDirection"
-      ],
-      "name": "Settings",
-      "label": "Settings",
-      "header": "",
-      "order": "100",
-      "navId": "",
-      "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     }
   },
@@ -192,23 +181,21 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
       "menuIndex": "100",
       "menuKey": "account",
       "menuLabel": "Account",
       "name": "Account",
       "perspectiveHeader": "",
-      "perspectiveIcon": "/services/web/resources/unicons/puzzle-piece.svg",
-      "perspectiveLabel": "Accounts",
-      "perspectiveName": "Accounts",
-      "perspectiveNavId": "configurations-navigation-group",
-      "perspectiveOrder": "90",
+      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+      "perspectiveName": "Settings",
+      "perspectiveNavId": "",
+      "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
       "roleWrite": "codbex-accounts.Accounts.AccountFullAccess",
       "title": "Account",
       "tooltip": "Account",
-      "type": "PRIMARY",
+      "type": "SETTING",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
@@ -281,15 +268,15 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "JournalEntry_Account",
           "relationshipEntityName": "Account",
-          "relationshipEntityPerspectiveName": "Accounts",
-          "relationshipEntityPerspectiveLabel": "Entities",
+          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveLabel": "",
           "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Account",
-          "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -397,15 +384,15 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "JournalEntry_Account",
             "relationshipEntityName": "Account",
-            "relationshipEntityPerspectiveName": "Accounts",
-            "relationshipEntityPerspectiveLabel": "Entities",
+            "relationshipEntityPerspectiveName": "Settings",
+            "relationshipEntityPerspectiveLabel": "",
             "dataNotNull": true,
             "dataAutoIncrement": false,
             "dataPrimaryKey": false,
             "dataUnique": false,
             "isCalculatedProperty": false,
             "widgetLabel": "Account",
-            "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Accounts/AccountService.ts",
+            "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
