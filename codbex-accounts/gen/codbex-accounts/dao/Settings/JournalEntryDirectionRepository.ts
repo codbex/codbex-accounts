@@ -96,7 +96,7 @@ export class JournalEntryDirectionRepository {
         this.dao = daoApi.create(JournalEntryDirectionRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: JournalEntryDirectionEntityOptions): JournalEntryDirectionEntity[] {
+    public findAll(options: JournalEntryDirectionEntityOptions = {}): JournalEntryDirectionEntity[] {
         return this.dao.list(options);
     }
 
