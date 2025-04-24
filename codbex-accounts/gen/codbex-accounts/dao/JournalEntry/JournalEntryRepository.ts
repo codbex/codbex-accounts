@@ -126,7 +126,7 @@ export class JournalEntryRepository {
         this.dao = daoApi.create(JournalEntryRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: JournalEntryEntityOptions): JournalEntryEntity[] {
+    public findAll(options: JournalEntryEntityOptions = {}): JournalEntryEntity[] {
         return this.dao.list(options).map((e: JournalEntryEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;

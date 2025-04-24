@@ -114,9 +114,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			});
 		};
 
-		$scope.openFilter = (entity) => {
+		$scope.openFilter = () => {
 			Dialogs.showWindow({
-				id: 'JournalEntryDirection-details',
+				id: 'JournalEntryDirection-filter',
 				params: {
 					entity: $scope.filterEntity,
 				},

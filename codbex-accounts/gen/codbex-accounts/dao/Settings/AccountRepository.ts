@@ -127,7 +127,7 @@ export class AccountRepository {
         this.dao = daoApi.create(AccountRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: AccountEntityOptions): AccountEntity[] {
+    public findAll(options: AccountEntityOptions = {}): AccountEntity[] {
         return this.dao.list(options).map((e: AccountEntity) => {
             EntityUtils.setBoolean(e, "Active");
             return e;

@@ -68,14 +68,14 @@
                 "generateDefaultRoles": "true",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "",
+                "layoutType": "MANAGE",
                 "menuIndex": "100",
                 "menuKey": "account",
                 "menuLabel": "Account",
                 "name": "Account",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "",
+                "perspectiveLabel": "Entities",
                 "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",
@@ -131,7 +131,7 @@
                         "relationshipName": "JournalEntry_Account",
                         "relationshipEntityName": "Account",
                         "relationshipEntityPerspectiveName": "Settings",
-                        "relationshipEntityPerspectiveLabel": ""
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "dataName": "JOURNALENTRY_DIRECTIONS",

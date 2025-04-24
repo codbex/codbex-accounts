@@ -1,5 +1,6 @@
 {
     "module": "codbex-accounts/gen/codbex-accounts/ui/JournalEntry/perspective.js",
     "extensionPoint": "application-perspectives",
-    "description": "codbex-accounts - Perspective - JournalEntry"
+    "description": "codbex-accounts - Perspective - JournalEntry",
+    "role": "codbex-accounts.JournalEntry.JournalEntryReadOnly,codbex-accounts.JournalEntry.JournalEntryFullAccess"
 }
