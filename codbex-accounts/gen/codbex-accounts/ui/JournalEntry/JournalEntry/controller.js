@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryController.ts';
 	}])
 	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -80,7 +80,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				filter = $scope.filter;
 			}
 			if (!filter) {
-				filter = {};
+				filter = {
+					$filter: {}
+				};
 			}
 			$scope.selectedEntity = null;
 			EntityService.count(filter).then((resp) => {
@@ -88,11 +90,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					$scope.dataCount = resp.data.count;
 				}
 				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
-				filter.$offset = ($scope.dataPage - 1) * $scope.dataLimit;
-				filter.$limit = $scope.dataLimit;
+				filter.$filter.offset = ($scope.dataPage - 1) * $scope.dataLimit;
+				filter.$filter.limit = $scope.dataLimit;
 				if ($scope.dataReset) {
-					filter.$offset = 0;
-					filter.$limit = $scope.dataPage * $scope.dataLimit;
+					filter.$filter.offset = 0;
+					filter.$filter.limit = $scope.dataPage * $scope.dataLimit;
 				}
 
 				EntityService.search(filter).then((response) => {
@@ -208,7 +210,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.optionsDirections = [];
 
 
-		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts').then((response) => {
+		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts').then((response) => {
 			$scope.optionsAccount = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -223,7 +225,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		});
 
-		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts').then((response) => {
+		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts').then((response) => {
 			$scope.optionsDirections = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name

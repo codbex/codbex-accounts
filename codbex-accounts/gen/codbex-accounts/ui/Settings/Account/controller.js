@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts';
 	}])
 	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -87,8 +87,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				let limit = $scope.dataLimit;
 				let request;
 				if (filter) {
-					filter.$offset = offset;
-					filter.$limit = limit;
+					if (!filter.$filter) {
+						filter.$filter = {};
+					}
+					filter.$filter.offset = offset;
+					filter.$filter.limit = limit;
 					request = EntityService.search(filter);
 				} else {
 					request = EntityService.list(offset, limit);
