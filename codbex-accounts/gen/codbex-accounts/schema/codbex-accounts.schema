@@ -15,10 +15,12 @@
                     {
                         "type": "VARCHAR",
                         "length": 200,
+                        "unique": true,
                         "name": "ACCOUNT_NAME"
                     },
                     {
                         "type": "INTEGER",
+                        "unique": true,
                         "name": "ACCOUNT_CODE"
                     },
                     {
@@ -61,11 +63,13 @@
                         "type": "INTEGER",
                         "primaryKey": true,
                         "nullable": true,
+                        "unique": true,
                         "name": "JOURNALENTRYDIRECTIONS_ID"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 200,
+                        "unique": true,
                         "name": "JOURNALENTRYDIRECTIONS_NAME"
                     }
                 ]

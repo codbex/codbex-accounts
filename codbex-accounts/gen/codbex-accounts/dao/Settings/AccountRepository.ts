@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 
 export interface AccountEntity {
@@ -71,9 +71,10 @@ export interface AccountEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface AccountEntityEvent {
+export interface AccountEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<AccountEntity>;
@@ -84,7 +85,7 @@ interface AccountEntityEvent {
     }
 }
 
-interface AccountUpdateEntityEvent extends AccountEntityEvent {
+export interface AccountUpdateEntityEvent extends AccountEntityEvent {
     readonly previousEntity: AccountEntity;
 }
 
@@ -128,13 +129,14 @@ export class AccountRepository {
     }
 
     public findAll(options: AccountEntityOptions = {}): AccountEntity[] {
-        return this.dao.list(options).map((e: AccountEntity) => {
+        let list = this.dao.list(options).map((e: AccountEntity) => {
             EntityUtils.setBoolean(e, "Active");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): AccountEntity | undefined {
+    public findById(id: number, options: AccountEntityOptions = {}): AccountEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setBoolean(entity, "Active");
         return entity ?? undefined;

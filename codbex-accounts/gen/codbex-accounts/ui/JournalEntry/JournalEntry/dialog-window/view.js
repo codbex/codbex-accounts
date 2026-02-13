@@ -6,6 +6,9 @@
 const viewData = {
     id: "JournalEntry-details",
     label: "JournalEntry",
+    translation: {
+        key: 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY',
+    },
     path: "/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/JournalEntry/dialog-window/index.html",
     perspectiveName: "JournalEntry",
     roles: [

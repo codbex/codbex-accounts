@@ -1,9 +1,14 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts';
 	}])
-	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
+	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'JournalEntryDirection successfully created';
+		let propertySuccessfullyUpdated = 'JournalEntryDirection successfully updated';
+
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -14,6 +19,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			update: 'Update JournalEntryDirection'
 		};
 		$scope.action = 'select';
+
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-accounts:codbex-accounts-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-accounts:codbex-accounts-model.defaults.formHeadSelect', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-accounts:codbex-accounts-model.defaults.formHeadCreate', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-accounts:codbex-accounts-model.defaults.formHeadUpdate', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-accounts:codbex-accounts-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-accounts:codbex-accounts-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION)' });
+		});
 
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
@@ -28,16 +42,16 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-accounts.Settings.JournalEntryDirection.entityCreated', data: response.data });
-				Dialogs.showAlert({
-					title: 'JournalEntryDirection',
-					message: 'JournalEntryDirection successfully created',
-					type: AlertTypes.Success
+				Notifications.show({
+					title: LocaleService.t('codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION'),
+					description: propertySuccessfullyCreated,
+					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to create JournalEntryDirection: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToCreate', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -49,16 +63,16 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-accounts.Settings.JournalEntryDirection.entityUpdated', data: response.data });
-				Dialogs.showAlert({
-					title: 'JournalEntryDirection',
-					message: 'JournalEntryDirection successfully updated',
-					type: AlertTypes.Success
+				Notifications.show({
+					title: LocaleService.t('codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION'),
+					description: propertySuccessfullyUpdated,
+					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to update JournalEntryDirection: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToUpdate', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -67,7 +81,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
-				title: 'Description',
+				title: description,
 				message: message,
 				type: AlertTypes.Information,
 				preformatted: true,

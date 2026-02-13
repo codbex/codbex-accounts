@@ -6,6 +6,9 @@
 const viewData = {
     id: 'Account-details',
     label: 'Account',
+    translation: {
+        key: 'codbex-accounts:codbex-accounts-model.t.ACCOUNT',
+    },
     path: '/services/web/codbex-accounts/gen/codbex-accounts/ui/Settings/Account/dialog-window/index.html',
     perspectiveName: 'Settings'
 };

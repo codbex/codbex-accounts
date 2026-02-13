@@ -6,6 +6,9 @@
 const viewData = {
     id: 'Account',
     label: 'Account',
+    translation: {
+        key: 'codbex-accounts:codbex-accounts-model.t.ACCOUNT',
+    },
     region: 'center',
     lazyLoad: true,
 	autoFocusTab: false,
