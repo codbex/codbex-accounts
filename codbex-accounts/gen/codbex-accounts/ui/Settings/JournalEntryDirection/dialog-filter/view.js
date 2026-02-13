@@ -6,6 +6,12 @@
 const viewData = {
     id: 'JournalEntryDirection-filter',
     label: 'JournalEntryDirection Filter',
+    translation: {
+        key: 'codbex-accounts:codbex-accounts-model.extName',
+        options: {
+            content: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION) $t(codbex-accounts:codbex-accounts-model.defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-accounts/gen/codbex-accounts/ui/Settings/JournalEntryDirection/dialog-filter/index.html',
     perspectiveName: 'Settings'
 };

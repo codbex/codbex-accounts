@@ -6,6 +6,9 @@
 const viewData = {
     id: 'JournalEntry',
     label: 'JournalEntry',
+    translation: {
+        key: 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY',
+    },
     region: 'left',
     lazyLoad: false,
 	autoFocusTab: false,

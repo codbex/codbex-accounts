@@ -6,6 +6,12 @@
 const viewData = {
     id: 'Account-filter',
     label: 'Account Filter',
+    translation: {
+        key: 'codbex-accounts:codbex-accounts-model.extName',
+        options: {
+            content: '$t(codbex-accounts:codbex-accounts-model.t.ACCOUNT) $t(codbex-accounts:codbex-accounts-model.defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-accounts/gen/codbex-accounts/ui/Settings/Account/dialog-filter/index.html',
     perspectiveName: 'Settings'
 };

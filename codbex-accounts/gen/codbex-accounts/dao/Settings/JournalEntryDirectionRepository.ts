@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface JournalEntryDirectionEntity {
     readonly Id: number;
@@ -52,9 +52,10 @@ export interface JournalEntryDirectionEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface JournalEntryDirectionEntityEvent {
+export interface JournalEntryDirectionEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<JournalEntryDirectionEntity>;
@@ -65,7 +66,7 @@ interface JournalEntryDirectionEntityEvent {
     }
 }
 
-interface JournalEntryDirectionUpdateEntityEvent extends JournalEntryDirectionEntityEvent {
+export interface JournalEntryDirectionUpdateEntityEvent extends JournalEntryDirectionEntityEvent {
     readonly previousEntity: JournalEntryDirectionEntity;
 }
 
@@ -97,10 +98,11 @@ export class JournalEntryDirectionRepository {
     }
 
     public findAll(options: JournalEntryDirectionEntityOptions = {}): JournalEntryDirectionEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): JournalEntryDirectionEntity | undefined {
+    public findById(id: number, options: JournalEntryDirectionEntityOptions = {}): JournalEntryDirectionEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

@@ -1,9 +1,22 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryService.ts';
 	}])
-	.controller('PageController', ($scope, $http, EntityService, Extensions, ButtonStates) => {
+	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
+		let translated = {
+			yes: 'Yes',
+			no: 'No',
+			deleteConfirm: 'Are you sure you want to delete JournalEntry? This action cannot be undone.',
+			deleteTitle: 'Delete JournalEntry?'
+		};
+
+		LocaleService.onInit(() => {
+			translated.yes = LocaleService.t('codbex-accounts:codbex-accounts-model.defaults.yes');
+			translated.no = LocaleService.t('codbex-accounts:codbex-accounts-model.defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-accounts:codbex-accounts-model.defaults.deleteTitle', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY)' });
+			translated.deleteConfirm = LocaleService.t('codbex-accounts:codbex-accounts-model.messages.deleteConfirm', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY)' });
+		});
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
 		$scope.dataOffset = 0;
@@ -18,8 +31,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerPageAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
+				maxWidth: action.maxWidth,
+				maxHeight: action.maxHeight,
 				closeButton: true
 			});
 		};
@@ -96,8 +111,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: 'JournalEntry',
-						message: `Unable to list/filter JournalEntry: '${message}'`,
+						title: LocaleService.t('codbex-accounts:codbex-accounts-model.t.JOURNALENTRY'),
+						message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLF', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -105,8 +120,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'JournalEntry',
-					message: `Unable to count JournalEntry: '${message}'`,
+					title: LocaleService.t('codbex-accounts:codbex-accounts-model.t.JOURNALENTRY'),
+					message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToCount', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -147,15 +162,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.deleteEntity = () => {
 			let id = $scope.selectedEntity.Id;
 			Dialogs.showDialog({
-				title: 'Delete JournalEntry?',
-				message: `Are you sure you want to delete JournalEntry? This action cannot be undone.`,
+				title: translated.deleteTitle,
+				message: translated.deleteConfirm,
 				buttons: [{
 					id: 'delete-btn-yes',
 					state: ButtonStates.Emphasized,
-					label: 'Yes',
+					label: translated.yes,
 				}, {
 					id: 'delete-btn-no',
-					label: 'No',
+					label: translated.no,
 				}],
 				closeButton: false
 			}).then((buttonId) => {
@@ -167,8 +182,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: 'JournalEntry',
-							message: `Unable to delete JournalEntry: '${message}'`,
+							title: LocaleService.t('codbex-accounts:codbex-accounts-model.t.JOURNALENTRY'),
+							message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToDelete', { name: '$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY)', message: message }),
 							type: AlertTypes.Error
 						});
 						console.error('EntityService:', error);
@@ -203,7 +218,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Account',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -218,7 +233,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Directions',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});

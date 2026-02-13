@@ -1,4 +1,4 @@
-angular.module('page', ['blimpKit', 'platformView']).controller('PageController', ($scope, ViewParameters) => {
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controller('PageController', ($scope, ViewParameters) => {
 	const Dialogs = new DialogHub();
 	$scope.entity = {};
 	$scope.forms = {

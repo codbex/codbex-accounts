@@ -6,6 +6,9 @@
 const perspectiveData = {
 	id: 'JournalEntry',
 	label: 'JournalEntry',
+	translation: {
+        key: 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY',
+    },
 	path: '/services/web/codbex-accounts/gen/codbex-accounts/ui/JournalEntry/index.html',
 	groupId: 'accounting-navigation-group',
 	order: 100,
