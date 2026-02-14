@@ -4,30 +4,13 @@
   "brandUrl": "https://www.codbex.com/",
   "title": "Accounts Management Module",
   "description": "Managing Accounts Data",
-  "fileName": "codbex-accounts",
-  "genFolderName": "codbex-accounts",
-  "dataSource": "DefaultDB",
-  "roles": [
-    {
-      "entityName": "Account",
-      "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
-      "roleWrite": "codbex-accounts.Accounts.AccountFullAccess"
-    },
-    {
-      "entityName": "JournalEntry",
-      "roleRead": "codbex-accounts.JournalEntry.JournalEntryReadOnly",
-      "roleWrite": "codbex-accounts.JournalEntry.JournalEntryFullAccess"
-    },
-    {
-      "entityName": "JournalEntryDirection",
-      "roleRead": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
-      "roleWrite": "codbex-accounts.Settings.JournalEntryDirectionFullAccess"
-    }
-  ],
   "projectName": "codbex-accounts",
   "workspaceName": "workspace",
   "filePath": "codbex-accounts.model",
-  "templateId": "template-application-angular/template/template.js",
+  "templateId": "template-application-angular-v2/template/template.js",
+  "fileName": "codbex-accounts",
+  "genFolderName": "codbex-accounts",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -74,6 +57,23 @@
       "role": ""
     }
   },
+  "roles": [
+    {
+      "entityName": "Account",
+      "roleRead": "codbex-accounts.Accounts.AccountReadOnly",
+      "roleWrite": "codbex-accounts.Accounts.AccountFullAccess"
+    },
+    {
+      "entityName": "JournalEntry",
+      "roleRead": "codbex-accounts.JournalEntry.JournalEntryReadOnly",
+      "roleWrite": "codbex-accounts.JournalEntry.JournalEntryFullAccess"
+    },
+    {
+      "entityName": "JournalEntryDirection",
+      "roleRead": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
+      "roleWrite": "codbex-accounts.Settings.JournalEntryDirectionFullAccess"
+    }
+  ],
   "tprefix": "codbex-accounts-model",
   "models": [
     {

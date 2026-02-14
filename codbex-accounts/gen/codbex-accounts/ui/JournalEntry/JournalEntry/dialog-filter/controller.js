@@ -24,36 +24,31 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		let entity = $scope.entity;
 		const filter = {
 			$filter: {
-				equals: {
-				},
-				notEquals: {
-				},
-				contains: {
-				},
-				greaterThan: {
-				},
-				greaterThanOrEqual: {
-				},
-				lessThan: {
-				},
-				lessThanOrEqual: {
-				}
-			},
+				conditions: [],
+				sorts: [],
+				limit: 20,
+				offset: 0
+			}
 		};
 		if (entity.Id !== undefined) {
-			filter.$filter.equals.Id = entity.Id;
+			const condition = { propertyName: 'Id', operator: 'EQ', value: entity.Id };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.DateFrom) {
-			filter.$filter.greaterThanOrEqual.Date = entity.DateFrom;
+			const condition = { propertyName: 'Date', operator: 'GE', value: entity.DateFrom };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.DateTo) {
-			filter.$filter.lessThanOrEqual.Date = entity.DateTo;
+			const condition = { propertyName: 'Date', operator: 'LE', value: entity.DateTo };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Account !== undefined) {
-			filter.$filter.equals.Account = entity.Account;
+			const condition = { propertyName: 'Account', operator: 'EQ', value: entity.Account };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Directions !== undefined) {
-			filter.$filter.equals.Directions = entity.Directions;
+			const condition = { propertyName: 'Directions', operator: 'EQ', value: entity.Directions };
+			filter.$filter.conditions.push(condition);
 		}
 		Dialogs.postMessage({ topic: 'codbex-accounts.JournalEntry.JournalEntry.entitySearch', data: {
 			entity: entity,

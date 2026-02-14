@@ -21,33 +21,27 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		let entity = $scope.entity;
 		const filter = {
 			$filter: {
-				equals: {
-				},
-				notEquals: {
-				},
-				contains: {
-				},
-				greaterThan: {
-				},
-				greaterThanOrEqual: {
-				},
-				lessThan: {
-				},
-				lessThanOrEqual: {
-				}
-			},
+				conditions: [],
+				sorts: [],
+				limit: 20,
+				offset: 0
+			}
 		};
 		if (entity.Id !== undefined) {
-			filter.$filter.equals.Id = entity.Id;
+			const condition = { propertyName: 'Id', operator: 'EQ', value: entity.Id };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Name) {
-			filter.$filter.contains.Name = entity.Name;
+			const condition = { propertyName: 'Name', operator: 'LIKE', value: `%${entity.Name}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Code !== undefined) {
-			filter.$filter.equals.Code = entity.Code;
+			const condition = { propertyName: 'Code', operator: 'EQ', value: entity.Code };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Active !== undefined && entity.isActiveIndeterminate === false) {
-			filter.$filter.equals.Active = entity.Active;
+			const condition = { propertyName: 'Active', operator: 'EQ', value: entity.Active };
+			filter.$filter.conditions.push(condition);
 		}
 		Dialogs.postMessage({ topic: 'codbex-accounts.Settings.Account.entitySearch', data: {
 			entity: entity,

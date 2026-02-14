@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryController.ts';
 	}])
 	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
@@ -82,11 +82,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		};
 
-		$scope.serviceAccount = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts';
+		$scope.serviceAccount = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts';
 		
 		$scope.optionsAccount = [];
 		
-		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts').then((response) => {
+		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts').then((response) => {
 			$scope.optionsAccount = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -100,11 +100,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				type: AlertTypes.Error
 			});
 		});
-		$scope.serviceDirections = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts';
+		$scope.serviceDirections = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts';
 		
 		$scope.optionsDirections = [];
 		
-		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts').then((response) => {
+		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts').then((response) => {
 			$scope.optionsDirections = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
