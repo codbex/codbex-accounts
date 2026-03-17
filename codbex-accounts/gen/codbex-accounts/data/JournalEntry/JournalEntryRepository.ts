@@ -1,4 +1,4 @@
-import { Repository, EntityEvent, EntityConstructor } from '@aerokit/sdk/db'
+import { Repository, EntityEvent, EntityConstructor, Options } from '@aerokit/sdk/db'
 import { Component } from '@aerokit/sdk/component'
 import { Producer } from '@aerokit/sdk/messaging'
 import { Extensions } from '@aerokit/sdk/extensions'
@@ -9,6 +9,22 @@ export class JournalEntryRepository extends Repository<JournalEntryEntity> {
 
     constructor() {
         super((JournalEntryEntity as EntityConstructor));
+    }
+
+    public override findById(id: string | number, options?: Options): JournalEntryEntity | undefined {
+        const entity = super.findById(id, options);
+        if (entity) {
+            entity.Date = entity.Date ? new Date(entity.Date) : undefined;
+        }
+        return entity;
+    }
+
+    public override findAll(options?: Options): JournalEntryEntity[] {
+        const entities = super.findAll(options);
+        entities.forEach(entity => {
+            entity.Date = entity.Date ? new Date(entity.Date) : undefined;
+        });
+        return entities;
     }
 
     protected override async triggerEvent(data: EntityEvent<JournalEntryEntity>): Promise<void> {
