@@ -29,7 +29,7 @@
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Date"
-	                                ng-readonly="action === 'select'"
+	                                ng-readonly="true"
 	                                type="date">
 	                            </bk-input>
 							</bk-form-input-message>
@@ -45,7 +45,7 @@
 	                            state="{{ forms.details['Account'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
 	                            ng-model="entity.Account"
-	                            is-readonly="action === 'select'"
+	                            is-readonly="true"
 	                            dropdown-items="optionsAccount"
 	                            placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputSearch' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_ACCOUNT)'} }}"
 								btn-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.showHide' | t:{'name':'Account'} }}" list-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.options' | t:{'name':'Account'} }}">
@@ -62,7 +62,7 @@
 	                            state="{{ forms.details['Directions'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
 	                            ng-model="entity.Directions"
-	                            is-readonly="action === 'select'"
+	                            is-readonly="true"
 	                            dropdown-items="optionsDirections"
 	                            placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputSearch' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_DIRECTIONS)'} }}"
 								btn-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.showHide' | t:{'name':'Directions'} }}" list-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.options' | t:{'name':'Directions'} }}">

@@ -1,4 +1,4 @@
-import { Repository, EntityEvent, EntityConstructor } from '@aerokit/sdk/db'
+import { Repository, EntityEvent, EntityConstructor, Options } from '@aerokit/sdk/db'
 import { Component } from '@aerokit/sdk/component'
 import { Producer } from '@aerokit/sdk/messaging'
 import { Extensions } from '@aerokit/sdk/extensions'
