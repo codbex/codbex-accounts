@@ -41,7 +41,11 @@
 							item-title="{{next.Date | date: 'dd/MMM/yyyy'}}">
 							<bk-list-byline align="left">
 								{{optionsAccountValue(next.Account)}} |
-								{{optionsDirectionsValue(next.Directions)}}
+								{{optionsDirectionsValue(next.Directions)}} |
+								{{next.CreatedAt}} |
+								{{next.CreatedBy}} |
+								{{next.UpdatedAt}} |
+								{{next.UpdatedBy}}
 							</bk-list-byline>
 						</bk-list-content>
 					</bk-list-link>

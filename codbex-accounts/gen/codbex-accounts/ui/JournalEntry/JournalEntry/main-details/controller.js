@@ -60,6 +60,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				if (data.entity.Date) {
 					data.entity.Date = new Date(data.entity.Date);
 				}
+				if (data.entity.CreatedAt) {
+					data.entity.CreatedAt = new Date(data.entity.CreatedAt);
+				}
+				if (data.entity.UpdatedAt) {
+					data.entity.UpdatedAt = new Date(data.entity.UpdatedAt);
+				}
 				$scope.entity = data.entity;
 				$scope.optionsAccount = data.optionsAccount;
 				$scope.optionsDirections = data.optionsDirections;
@@ -78,6 +84,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.$evalAsync(() => {
 				if (data.entity.Date) {
 					data.entity.Date = new Date(data.entity.Date);
+				}
+				if (data.entity.CreatedAt) {
+					data.entity.CreatedAt = new Date(data.entity.CreatedAt);
+				}
+				if (data.entity.UpdatedAt) {
+					data.entity.UpdatedAt = new Date(data.entity.UpdatedAt);
 				}
 				$scope.entity = data.entity;
 				$scope.optionsAccount = data.optionsAccount;

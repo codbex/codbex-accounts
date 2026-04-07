@@ -26,6 +26,28 @@
                     {
                         "type": "BOOLEAN",
                         "name": "ACCOUNT_ACTIVE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "ACCOUNT_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "ACCOUNT_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "ACCOUNT_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "ACCOUNT_UPDATEDBY"
                     }
                 ]
             },
@@ -52,6 +74,28 @@
                     {
                         "type": "INTEGER",
                         "name": "JOURNALENTRY_DIRECTIONS"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "JOURNALENTRY_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "JOURNALENTRY_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "JOURNALENTRY_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "JOURNALENTRY_UPDATEDBY"
                     }
                 ]
             },

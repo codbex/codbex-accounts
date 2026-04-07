@@ -4,6 +4,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "ACCOUNT_ID",
                         "dataNullable": "true",
@@ -18,6 +19,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "200",
                         "dataName": "ACCOUNT_NAME",
                         "dataNullable": "false",
@@ -33,6 +35,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "ACCOUNT_CODE",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -47,17 +50,75 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "ACCOUNT_ACTIVE",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataType": "BOOLEAN",
                         "description": "",
-                        "isRequiredProperty": "true",
                         "name": "Active",
                         "tooltip": "",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "CHECKBOX"
+                    },
+                    {
+                        "auditType": "CREATED_AT",
+                        "dataName": "ACCOUNT_CREATEDAT",
+                        "dataNullable": "true",
+                        "dataType": "TIMESTAMP",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedAt",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "CREATED_BY",
+                        "dataLength": "20",
+                        "dataName": "ACCOUNT_CREATEDBY",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedBy",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "UPDATED_AT",
+                        "dataName": "ACCOUNT_UPDATEDAT",
+                        "dataNullable": "true",
+                        "dataType": "TIMESTAMP",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "UpdatedAt",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "UPDATED_BY",
+                        "dataLength": "20",
+                        "dataName": "ACCOUNT_UPDATEDBY",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "UpdatedBy",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity Account",
@@ -76,7 +137,7 @@
                 "name": "Account",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
+                "perspectiveLabel": "Settings",
                 "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",
@@ -90,6 +151,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "JOURNALENTRY_ID",
                         "dataNullable": "true",
@@ -104,6 +166,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOURNALENTRY_DATE",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -116,6 +179,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOURNALENTRY_ACCOUNT",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -132,9 +196,10 @@
                         "relationshipName": "JournalEntry_Account",
                         "relationshipEntityName": "Account",
                         "relationshipEntityPerspectiveName": "Settings",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveLabel": "Settings"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "JOURNALENTRY_DIRECTIONS",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -151,7 +216,65 @@
                         "relationshipName": "JournalEntry_JournalEntryDirection",
                         "relationshipEntityName": "JournalEntryDirection",
                         "relationshipEntityPerspectiveName": "Settings",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveLabel": "Settings"
+                    },
+                    {
+                        "auditType": "CREATED_AT",
+                        "dataName": "JOURNALENTRY_CREATEDAT",
+                        "dataNullable": "true",
+                        "dataType": "TIMESTAMP",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedAt",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "CREATED_BY",
+                        "dataLength": "20",
+                        "dataName": "JOURNALENTRY_CREATEDBY",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "CreatedBy",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "UPDATED_AT",
+                        "dataName": "JOURNALENTRY_UPDATEDAT",
+                        "dataNullable": "true",
+                        "dataType": "TIMESTAMP",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "UpdatedAt",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "UPDATED_BY",
+                        "dataLength": "20",
+                        "dataName": "JOURNALENTRY_UPDATEDBY",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "isReadOnlyProperty": "true",
+                        "name": "UpdatedBy",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity JournalEntry",
@@ -184,6 +307,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataName": "JOURNALENTRYDIRECTIONS_ID",
                         "dataNullable": "true",
                         "dataPrimaryKey": "true",
@@ -198,6 +322,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "200",
                         "dataName": "JOURNALENTRYDIRECTIONS_NAME",
                         "dataNullable": "false",
@@ -231,7 +356,7 @@
                 "name": "JournalEntryDirection",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
+                "perspectiveLabel": "Settings",
                 "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",

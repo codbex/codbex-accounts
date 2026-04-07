@@ -97,6 +97,15 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					request = EntityService.list(offset, limit);
 				}
 				request.then((response) => {
+					response.data.forEach(e => {
+						if (e.CreatedAt) {
+							e.CreatedAt = new Date(e.CreatedAt);
+						}
+						if (e.UpdatedAt) {
+							e.UpdatedAt = new Date(e.UpdatedAt);
+						}
+					});
+
 					$scope.data = response.data;
 				}, (error) => {
 					const message = error.data ? error.data.message : '';

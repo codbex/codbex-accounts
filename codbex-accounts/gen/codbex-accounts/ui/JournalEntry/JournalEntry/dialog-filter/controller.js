@@ -13,6 +13,18 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (params?.entity?.DateTo) {
 			params.entity.DateTo = new Date(params.entity.DateTo);
 		}
+		if (params?.entity?.CreatedAtFrom) {
+			params.entity.CreatedAtFrom = new Date(params.entity.CreatedAtFrom);
+		}
+		if (params?.entity?.CreatedAtTo) {
+			params.entity.CreatedAtTo = new Date(params.entity.CreatedAtTo);
+		}
+		if (params?.entity?.UpdatedAtFrom) {
+			params.entity.UpdatedAtFrom = new Date(params.entity.UpdatedAtFrom);
+		}
+		if (params?.entity?.UpdatedAtTo) {
+			params.entity.UpdatedAtTo = new Date(params.entity.UpdatedAtTo);
+		}
 		$scope.entity = params.entity ?? {};
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
@@ -48,6 +60,30 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		}
 		if (entity.Directions !== undefined) {
 			const condition = { propertyName: 'Directions', operator: 'EQ', value: entity.Directions };
+			filter.$filter.conditions.push(condition);
+		}
+		if (entity.CreatedAtFrom) {
+			const condition = { propertyName: 'CreatedAt', operator: 'GE', value: entity.CreatedAtFrom };
+			filter.$filter.conditions.push(condition);
+		}
+		if (entity.CreatedAtTo) {
+			const condition = { propertyName: 'CreatedAt', operator: 'LE', value: entity.CreatedAtTo };
+			filter.$filter.conditions.push(condition);
+		}
+		if (entity.CreatedBy) {
+			const condition = { propertyName: 'CreatedBy', operator: 'LIKE', value: `%${entity.CreatedBy}%` };
+			filter.$filter.conditions.push(condition);
+		}
+		if (entity.UpdatedAtFrom) {
+			const condition = { propertyName: 'UpdatedAt', operator: 'GE', value: entity.UpdatedAtFrom };
+			filter.$filter.conditions.push(condition);
+		}
+		if (entity.UpdatedAtTo) {
+			const condition = { propertyName: 'UpdatedAt', operator: 'LE', value: entity.UpdatedAtTo };
+			filter.$filter.conditions.push(condition);
+		}
+		if (entity.UpdatedBy) {
+			const condition = { propertyName: 'UpdatedBy', operator: 'LIKE', value: `%${entity.UpdatedBy}%` };
 			filter.$filter.conditions.push(condition);
 		}
 		Dialogs.postMessage({ topic: 'codbex-accounts.JournalEntry.JournalEntry.entitySearch', data: {

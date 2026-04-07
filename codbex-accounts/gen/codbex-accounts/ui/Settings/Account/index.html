@@ -28,6 +28,10 @@
 						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.ACCOUNT_NAME' | t:'Name' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.ACCOUNT_CODE' | t:'Code' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.ACCOUNT_ACTIVE' | t:'Active' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.ACCOUNT_CREATEDAT' | t:'CreatedAt' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.ACCOUNT_CREATEDBY' | t:'CreatedBy' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.ACCOUNT_UPDATEDAT' | t:'UpdatedAt' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.ACCOUNT_UPDATEDBY' | t:'UpdatedBy' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
@@ -43,6 +47,10 @@
 							<bk-checkbox id="idActive" compact="false" ng-readonly="true" ng-model="next.Active"></bk-checkbox>
 							<bk-checkbox-label for="idActive" empty="true"></bk-checkbox-label>
 						</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedAt}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedBy}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedAt}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedBy}}</td>
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>
