@@ -33,8 +33,9 @@ export class AccountEntity {
     @Column({
         name: 'ACCOUNT_ACTIVE',
         type: 'boolean',
+        nullable: true,
     })
-    public Active!: boolean;
+    public Active?: boolean;
 
     @Documentation('CreatedAt')
     @Column({

@@ -173,9 +173,6 @@ class AccountController {
         if (entity.Code === null || entity.Code === undefined) {
             throw new ValidationError(`The 'Code' property is required, provide a valid value`);
         }
-        if (entity.Active === null || entity.Active === undefined) {
-            throw new ValidationError(`The 'Active' property is required, provide a valid value`);
-        }
         if (entity.CreatedBy?.length > 20) {
             throw new ValidationError(`The 'CreatedBy' exceeds the maximum length of [20] characters`);
         }

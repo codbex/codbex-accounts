@@ -25,6 +25,7 @@
                     },
                     {
                         "type": "BOOLEAN",
+                        "nullable": true,
                         "name": "ACCOUNT_ACTIVE"
                     },
                     {
