@@ -37,44 +37,6 @@ export class AccountEntity {
     })
     public Active?: boolean;
 
-    @Documentation('CreatedAt')
-    @Column({
-        name: 'ACCOUNT_CREATEDAT',
-        type: 'timestamp',
-        nullable: true,
-    })
-    @CreatedAt()
-    public CreatedAt?: Date;
-
-    @Documentation('CreatedBy')
-    @Column({
-        name: 'ACCOUNT_CREATEDBY',
-        type: 'string',
-        length: 20,
-        nullable: true,
-    })
-    @CreatedBy()
-    public CreatedBy?: string;
-
-    @Documentation('UpdatedAt')
-    @Column({
-        name: 'ACCOUNT_UPDATEDAT',
-        type: 'timestamp',
-        nullable: true,
-    })
-    @UpdatedAt()
-    public UpdatedAt?: Date;
-
-    @Documentation('UpdatedBy')
-    @Column({
-        name: 'ACCOUNT_UPDATEDBY',
-        type: 'string',
-        length: 20,
-        nullable: true,
-    })
-    @UpdatedBy()
-    public UpdatedBy?: string;
-
 }
 
 (new AccountEntity());
