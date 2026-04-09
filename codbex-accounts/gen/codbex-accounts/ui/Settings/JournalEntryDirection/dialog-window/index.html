@@ -31,7 +31,7 @@
 	                                state="{{ forms.details['Id'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Id"
-	                                ng-readonly="true"
+	                                ng-readonly="action === 'select'"
 	                                type="text"
 	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTIONS_ID)'} }}">
 	                            </bk-input>
@@ -51,7 +51,7 @@
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 									ng-required="true"
 	                                ng-model="entity.Name"
-	                                ng-readonly="true"
+	                                ng-readonly="action === 'select'"
 									ng-maxlength="20.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTIONS_NAME)'} }}">

@@ -44,7 +44,7 @@ class AccountController {
             this.checkPermissions('write');
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity) as any;
-            response.setHeader('Content-Location', '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts/' + entity.Id);
+            response.setHeader('Content-Location', '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts/' + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -172,9 +172,6 @@ class AccountController {
         }
         if (entity.Code === null || entity.Code === undefined) {
             throw new ValidationError(`The 'Code' property is required, provide a valid value`);
-        }
-        if (entity.Active === null || entity.Active === undefined) {
-            throw new ValidationError(`The 'Active' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);

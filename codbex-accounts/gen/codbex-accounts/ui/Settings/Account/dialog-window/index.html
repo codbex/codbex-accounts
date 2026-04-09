@@ -31,7 +31,7 @@
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 									ng-required="true"
 	                                ng-model="entity.Name"
-	                                ng-readonly="true"
+	                                ng-readonly="action === 'select'"
 									ng-maxlength="20.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.ACCOUNT_NAME)'} }}">
@@ -49,7 +49,7 @@
 								state="{{ forms.details['Code'].$valid ? '' : 'error' }}"
 								ng-required="true"
 								ng-model="entity.Code"
-								is-readonly="true"
+								is-readonly="action === 'select'"
 								placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.ACCOUNT_CODE)'} }}">
 							</bk-step-input>
 	                    </div>
@@ -59,11 +59,11 @@
 	                    <div class="fd-col  bk-col--fit ">
 	                        <bk-checkbox id="idActive"
 	                            compact="false"
-	                            ng-required="true"
-	                            ng-readonly="true"
+	                            ng-required="false"
+	                            ng-readonly="action === 'select'"
 	                            ng-model="entity.Active">
 	                        </bk-checkbox>
-                        	<bk-checkbox-label for="idActive" ng-required="true">{{ 'codbex-accounts:codbex-accounts-model.t.ACCOUNT_ACTIVE' | t }}</bk-checkbox-label>
+                        	<bk-checkbox-label for="idActive" ng-required="false">{{ 'codbex-accounts:codbex-accounts-model.t.ACCOUNT_ACTIVE' | t }}</bk-checkbox-label>
                         </div>
                     </bk-form-item>
                 </bk-form-group>

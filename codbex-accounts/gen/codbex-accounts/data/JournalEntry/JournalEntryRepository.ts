@@ -15,6 +15,8 @@ export class JournalEntryRepository extends Repository<JournalEntryEntity> {
         const entity = super.findById(id, options);
         if (entity) {
             entity.Date = entity.Date ? new Date(entity.Date) : undefined;
+            entity.CreatedAt = entity.CreatedAt ? new Date(entity.CreatedAt) : undefined;
+            entity.UpdatedAt = entity.UpdatedAt ? new Date(entity.UpdatedAt) : undefined;
         }
         return entity;
     }
@@ -23,6 +25,8 @@ export class JournalEntryRepository extends Repository<JournalEntryEntity> {
         const entities = super.findAll(options);
         entities.forEach(entity => {
             entity.Date = entity.Date ? new Date(entity.Date) : undefined;
+            entity.CreatedAt = entity.CreatedAt ? new Date(entity.CreatedAt) : undefined;
+            entity.UpdatedAt = entity.UpdatedAt ? new Date(entity.UpdatedAt) : undefined;
         });
         return entities;
     }

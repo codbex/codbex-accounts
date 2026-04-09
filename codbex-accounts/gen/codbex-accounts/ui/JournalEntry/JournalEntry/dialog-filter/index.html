@@ -75,6 +75,72 @@
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idCreatedAt" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_CREATEDAT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}" text="{{'codbex-accounts:codbex-accounts-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idCreatedAt"
+	                                name="CreatedAt"
+	                                state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.CreatedAt"
+	                                type="text"
+	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_CREATEDAT)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idCreatedBy" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_CREATEDBY' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['CreatedBy'].$valid ? '' : 'error' }}" text="{{'codbex-accounts:codbex-accounts-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idCreatedBy"
+	                                name="CreatedBy"
+	                                state="{{ forms.details['CreatedBy'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.CreatedBy"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_CREATEDBY)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idUpdatedAt" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_UPDATEDAT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['UpdatedAt'].$valid ? '' : 'error' }}" text="{{'codbex-accounts:codbex-accounts-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idUpdatedAt"
+	                                name="UpdatedAt"
+	                                state="{{ forms.details['UpdatedAt'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.UpdatedAt"
+	                                type="text"
+	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_UPDATEDAT)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idUpdatedBy" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_UPDATEDBY' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['UpdatedBy'].$valid ? '' : 'error' }}" text="{{'codbex-accounts:codbex-accounts-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idUpdatedBy"
+	                                name="UpdatedBy"
+	                                state="{{ forms.details['UpdatedBy'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.UpdatedBy"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_UPDATEDBY)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
                 </bk-form-group>
             </bk-fieldset>
         </bk-scrollbar>
