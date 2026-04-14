@@ -29,7 +29,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
 		$scope.optionsAccount = params.optionsAccount;
-		$scope.optionsDirections = params.optionsDirections;
+		$scope.optionsDirection = params.optionsDirection;
 	}
 
 	$scope.filter = () => {
@@ -58,8 +58,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 			const condition = { propertyName: 'Account', operator: 'EQ', value: entity.Account };
 			filter.$filter.conditions.push(condition);
 		}
-		if (entity.Directions !== undefined) {
-			const condition = { propertyName: 'Directions', operator: 'EQ', value: entity.Directions };
+		if (entity.Direction !== undefined) {
+			const condition = { propertyName: 'Direction', operator: 'EQ', value: entity.Direction };
 			filter.$filter.conditions.push(condition);
 		}
 		if (entity.CreatedAtFrom) {

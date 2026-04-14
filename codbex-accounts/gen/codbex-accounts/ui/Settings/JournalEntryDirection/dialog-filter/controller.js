@@ -35,6 +35,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 			const condition = { propertyName: 'Name', operator: 'LIKE', value: `%${entity.Name}%` };
 			filter.$filter.conditions.push(condition);
 		}
+		if (entity.Direction !== undefined) {
+			const condition = { propertyName: 'Direction', operator: 'EQ', value: entity.Direction };
+			filter.$filter.conditions.push(condition);
+		}
 		Dialogs.postMessage({ topic: 'codbex-accounts.Settings.JournalEntryDirection.entitySearch', data: {
 			entity: entity,
 			filter: filter

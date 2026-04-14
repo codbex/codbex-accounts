@@ -143,7 +143,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsAccount: $scope.optionsAccount,
-				optionsDirections: $scope.optionsDirections,
+				optionsDirection: $scope.optionsDirection,
 			}});
 		};
 
@@ -154,7 +154,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			Dialogs.postMessage({ topic: 'codbex-accounts.JournalEntry.JournalEntry.createEntity', data: {
 				entity: {},
 				optionsAccount: $scope.optionsAccount,
-				optionsDirections: $scope.optionsDirections,
+				optionsDirection: $scope.optionsDirection,
 			}});
 		};
 
@@ -163,7 +163,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			Dialogs.postMessage({ topic: 'codbex-accounts.JournalEntry.JournalEntry.updateEntity', data: {
 				entity: $scope.selectedEntity,
 				optionsAccount: $scope.optionsAccount,
-				optionsDirections: $scope.optionsDirections,
+				optionsDirection: $scope.optionsDirection,
 			}});
 		};
 
@@ -206,14 +206,14 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				params: {
 					entity: $scope.filterEntity,
 					optionsAccount: $scope.optionsAccount,
-					optionsDirections: $scope.optionsDirections,
+					optionsDirection: $scope.optionsDirection,
 				},
 			});
 		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsAccount = [];
-		$scope.optionsDirections = [];
+		$scope.optionsDirection = [];
 
 
 		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts').then((response) => {
@@ -232,7 +232,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		});
 
 		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts').then((response) => {
-			$scope.optionsDirections = response.data.map(e => ({
+			$scope.optionsDirection = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
 			}));
@@ -240,7 +240,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			console.error(error);
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
-				title: 'Directions',
+				title: 'Direction',
 				message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
@@ -254,10 +254,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}
 			return null;
 		};
-		$scope.optionsDirectionsValue = (optionKey) => {
-			for (let i = 0; i < $scope.optionsDirections.length; i++) {
-				if ($scope.optionsDirections[i].value === optionKey) {
-					return $scope.optionsDirections[i].text;
+		$scope.optionsDirectionValue = (optionKey) => {
+			for (let i = 0; i < $scope.optionsDirection.length; i++) {
+				if ($scope.optionsDirection[i].value === optionKey) {
+					return $scope.optionsDirection[i].text;
 				}
 			}
 			return null;

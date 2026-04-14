@@ -6,20 +6,29 @@ import { Entity, Table, Id, Generated, Column, Documentation, CreatedAt, Created
 export class JournalEntryDirectionEntity {
 
     @Id()
+    @Generated('sequence')
     @Documentation('Id')
     @Column({
-        name: 'JOURNALENTRYDIRECTIONS_ID',
+        name: 'JOURNALENTRYDIRECTION_ID',
         type: 'integer',
     })
     public Id?: number;
 
     @Documentation('Name')
     @Column({
-        name: 'JOURNALENTRYDIRECTIONS_NAME',
+        name: 'JOURNALENTRYDIRECTION_NAME',
         type: 'string',
-        length: 200,
+        length: 20,
     })
     public Name!: string;
+
+    @Documentation('Direction')
+    @Column({
+        name: 'JOURNALENTRYDIRECTION_DIRECTION',
+        type: 'integer',
+        nullable: true,
+    })
+    public Direction?: number;
 
 }
 

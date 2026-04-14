@@ -44,7 +44,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsAccount = params.optionsAccount;
-			$scope.optionsDirections = params.optionsDirections;
+			$scope.optionsDirection = params.optionsDirection;
 		}
 
 		$scope.create = () => {
@@ -106,12 +106,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				type: AlertTypes.Error
 			});
 		});
-		$scope.serviceDirections = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts';
+		$scope.serviceDirection = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts';
 		
-		$scope.optionsDirections = [];
+		$scope.optionsDirection = [];
 		
 		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts').then((response) => {
-			$scope.optionsDirections = response.data.map(e => ({
+			$scope.optionsDirection = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
 			}));
@@ -119,7 +119,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			console.error(error);
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
-				title: 'Directions',
+				title: 'Direction',
 				message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});

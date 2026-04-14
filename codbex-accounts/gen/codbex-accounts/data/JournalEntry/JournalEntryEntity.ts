@@ -29,12 +29,13 @@ export class JournalEntryEntity {
     })
     public Account!: number;
 
-    @Documentation('Directions')
+    @Documentation('Direction')
     @Column({
-        name: 'JOURNALENTRY_DIRECTIONS',
+        name: 'JOURNALENTRY_DIRECTION',
         type: 'integer',
+        nullable: true,
     })
-    public Directions!: number;
+    public Direction?: number;
 
     @Documentation('CreatedAt')
     @Column({

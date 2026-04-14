@@ -75,14 +75,15 @@
       "JOURNALENTRY_ID": "Id",
       "JOURNALENTRY_DATE": "Date",
       "JOURNALENTRY_ACCOUNT": "Account",
-      "JOURNALENTRY_DIRECTIONS": "Directions",
+      "JOURNALENTRY_DIRECTION": "Direction",
       "JOURNALENTRY_CREATEDAT": "CreatedAt",
       "JOURNALENTRY_CREATEDBY": "CreatedBy",
       "JOURNALENTRY_UPDATEDAT": "UpdatedAt",
       "JOURNALENTRY_UPDATEDBY": "UpdatedBy",
       "JOURNALENTRYDIRECTION": "JournalEntryDirection",
-      "JOURNALENTRYDIRECTIONS_ID": "Id",
-      "JOURNALENTRYDIRECTIONS_NAME": "Name",
+      "JOURNALENTRYDIRECTION_ID": "Id",
+      "JOURNALENTRYDIRECTION_NAME": "Name",
+      "JOURNALENTRYDIRECTION_DIRECTION": "Direction",
       "Accounts": "Accounts",
       "JournalEntry": "JournalEntry"
     }

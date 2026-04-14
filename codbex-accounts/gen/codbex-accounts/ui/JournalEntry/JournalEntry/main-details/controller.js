@@ -51,7 +51,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.$evalAsync(() => {
 				$scope.entity = {};
 				$scope.optionsAccount = [];
-				$scope.optionsDirections = [];
+				$scope.optionsDirection = [];
 				$scope.action = 'select';
 			});
 		}});
@@ -68,7 +68,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				}
 				$scope.entity = data.entity;
 				$scope.optionsAccount = data.optionsAccount;
-				$scope.optionsDirections = data.optionsDirections;
+				$scope.optionsDirection = data.optionsDirection;
 				$scope.action = 'select';
 			});
 		}});
@@ -76,7 +76,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.$evalAsync(() => {
 				$scope.entity = {};
 				$scope.optionsAccount = data.optionsAccount;
-				$scope.optionsDirections = data.optionsDirections;
+				$scope.optionsDirection = data.optionsDirection;
 				$scope.action = 'create';
 			});
 		}});
@@ -93,13 +93,13 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				}
 				$scope.entity = data.entity;
 				$scope.optionsAccount = data.optionsAccount;
-				$scope.optionsDirections = data.optionsDirections;
+				$scope.optionsDirection = data.optionsDirection;
 				$scope.action = 'update';
 			});
 		}});
 
 		$scope.serviceAccount = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts';
-		$scope.serviceDirections = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts';
+		$scope.serviceDirection = '/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts';
 
 		//-----------------Events-------------------//
 
@@ -167,7 +167,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				closeButton: false
 			});
 		};
-		$scope.createDirections = () => {
+		$scope.createDirection = () => {
 			Dialogs.showWindow({
 				id: 'JournalEntryDirection-details',
 				params: {
@@ -201,10 +201,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				});
 			});
 		};
-		$scope.refreshDirections = () => {
-			$scope.optionsDirections = [];
+		$scope.refreshDirection = () => {
+			$scope.optionsDirection = [];
 			$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts').then((response) => {
-				$scope.optionsDirections = response.data.map(e => ({
+				$scope.optionsDirection = response.data.map(e => ({
 					value: e.Id,
 					text: e.Name
 				}));
@@ -212,7 +212,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				console.error(error);
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'Directions',
+					title: 'Direction',
 					message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});

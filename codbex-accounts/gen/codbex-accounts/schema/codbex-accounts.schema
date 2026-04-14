@@ -52,7 +52,8 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "JOURNALENTRY_DIRECTIONS"
+                        "nullable": true,
+                        "name": "JOURNALENTRY_DIRECTION"
                     },
                     {
                         "type": "TIMESTAMP",
@@ -85,15 +86,20 @@
                     {
                         "type": "INTEGER",
                         "primaryKey": true,
+                        "identity": true,
                         "nullable": true,
-                        "unique": true,
-                        "name": "JOURNALENTRYDIRECTIONS_ID"
+                        "name": "JOURNALENTRYDIRECTION_ID"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 200,
+                        "length": 20,
                         "unique": true,
-                        "name": "JOURNALENTRYDIRECTIONS_NAME"
+                        "name": "JOURNALENTRYDIRECTION_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOURNALENTRYDIRECTION_DIRECTION"
                     }
                 ]
             },
@@ -111,9 +117,9 @@
                 "type": "foreignKey",
                 "table": "CODBEX_JOURNALENTRY",
                 "constraintName": "JournalEntry_JournalEntryDirection",
-                "columns": "JOURNALENTRY_DIRECTIONS",
+                "columns": "JOURNALENTRY_DIRECTION",
                 "referencedTable": "CODBEX_JOURNALENTRYDIRECTION",
-                "referencedColumns": "JOURNALENTRYDIRECTIONS_ID"
+                "referencedColumns": "JOURNALENTRYDIRECTION_ID"
             }
         ]
     },
