@@ -56,23 +56,23 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idDirections" ng-required="true" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_DIRECTIONS' | t }}</bk-form-label>
+                        	<bk-form-label for="idDirection" ng-required="false" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_DIRECTION' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
-	                        <bk-combobox-input input-id="idDirections"
-	                            name="Directions"
-	                            state="{{ forms.details['Directions'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
-	                            ng-model="entity.Directions"
+	                        <bk-combobox-input input-id="idDirection"
+	                            name="Direction"
+	                            state="{{ forms.details['Direction'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.Direction"
 	                            is-readonly="action === 'select'"
-	                            dropdown-items="optionsDirections"
-	                            placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputSearch' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_DIRECTIONS)'} }}"
-								btn-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.showHide' | t:{'name':'Directions'} }}" list-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.options' | t:{'name':'Directions'} }}">
+	                            dropdown-items="optionsDirection"
+	                            placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputSearch' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_DIRECTION)'} }}"
+								btn-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.showHide' | t:{'name':'Direction'} }}" list-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.options' | t:{'name':'Direction'} }}">
 	                        </bk-combobox-input>
 	                    </div>
 	                    <div class="fd-col fd-col--full">
-							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-accounts:codbex-accounts-model.defaults.add' | t }}" ng-click="createDirections()" ng-hide="action === 'select'"></bk-button>
-							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-accounts:codbex-accounts-model.defaults.refresh' | t }}" ng-click="refreshDirections()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-accounts:codbex-accounts-model.defaults.add' | t }}" ng-click="createDirection()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-accounts:codbex-accounts-model.defaults.refresh' | t }}" ng-click="refreshDirection()" ng-hide="action === 'select'"></bk-button>
 						</div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">

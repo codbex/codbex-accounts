@@ -14,13 +14,5 @@
     {
         "name": "codbex-accounts.JournalEntry.JournalEntryFullAccess",
         "description": "A role that grants full access for JournalEntry."
-    },
-    {
-        "name": "codbex-accounts.Settings.JournalEntryDirectionReadOnly",
-        "description": "A role that grants read only permission for JournalEntryDirection."
-    },
-    {
-        "name": "codbex-accounts.Settings.JournalEntryDirectionFullAccess",
-        "description": "A role that grants full access for JournalEntryDirection."
     }
 ]

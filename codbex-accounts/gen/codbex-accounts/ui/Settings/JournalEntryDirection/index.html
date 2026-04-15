@@ -25,8 +25,8 @@
 			<table bk-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
-						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTIONS_ID' | t:'Id' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTIONS_NAME' | t:'Name' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION_NAME' | t:'Name' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRYDIRECTION_DIRECTION' | t:'Direction' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
@@ -36,8 +36,8 @@
 					</tr>
 					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index"
 						selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Id}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Name}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Direction}}</td>
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>
