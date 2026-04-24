@@ -29,17 +29,17 @@
 | Date      | DATE       | Nullable             | Date of the journal entry.               |
 | Account   | INTEGER    | FK, Not Null         | Foreign key referencing the account.     |
 | Direction | INTEGER    | FK, Nullable         | Foreign key referencing the direction.   |
-| CreatedAt | TIMESTAMP  | Nullable             | Timestamp when the entry was created.    |
-| CreatedBy | VARCHAR    | Length: 20, Nullable | User who created the entry.              |
-| UpdatedAt | TIMESTAMP  | Nullable             | Timestamp when the entry was updated.    |
-| UpdatedBy | VARCHAR    | Length: 20, Nullable | User who updated the entry.              |
+| CreatedAt | TIMESTAMP  | Audit, Nullable             | Timestamp when the entry was created.    |
+| CreatedBy | VARCHAR    | Audit, Length: 20, Nullable | User who created the entry.              |
+| UpdatedAt | TIMESTAMP  | Audit, Nullable             | Timestamp when the entry was updated.    |
+| UpdatedBy | VARCHAR    | Audit, Length: 20, Nullable | User who updated the entry.              |
 
 ### Entity `JournalEntryDirection`
 
 | Field     | Type     | Details                   | Description                              |
 |-----------| -------- | ------------------------- | ---------------------------------------- |
 | Id        | INTEGER  | PK, Identity      | Unique identifier for the direction.     |
-| Name      | VARCHAR  | Length: 20, Unique        | Name of the journal entry direction.     |
+| Name      | VARCHAR  | Length: 20, Unique, Not Null        | Name of the journal entry direction.     |
 | Direction | INTEGER  | Nullable                  | Direction value for the journal entry.   |
 
 ## 🔗 Sample Data Modules
