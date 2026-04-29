@@ -55,8 +55,14 @@
 	                            state="{{ forms.details['Account'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.Account"
 	                            dropdown-items="optionsAccount"
+								ng-keyup="onOptionsAccountChange($event)"
 	                            placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputSearch' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_ACCOUNT)'} }}"
 								btn-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.showHide' | t:{'name':'Account'} }}" list-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.options' | t:{'name':'Account'} }}">
+								    <bk-list-action-item ng-if="optionsAccountHasMore" ng-click="loadMoreOptionsAccount()">
+										<bk-busy-indicator ng-if="optionsAccountLoading" size="m"></bk-busy-indicator>
+										<span ng-if="!optionsAccountLoading" class="sap-icon sap-icon--navigation-down-arrow" role="presentation"></span>
+										<span ng-if="!optionsAccountLoading">More Options</span>
+									</bk-list-action-item>
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
@@ -70,8 +76,14 @@
 	                            state="{{ forms.details['Direction'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.Direction"
 	                            dropdown-items="optionsDirection"
+								ng-keyup="onOptionsDirectionChange($event)"
 	                            placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputSearch' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_DIRECTION)'} }}"
 								btn-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.showHide' | t:{'name':'Direction'} }}" list-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.options' | t:{'name':'Direction'} }}">
+								    <bk-list-action-item ng-if="optionsDirectionHasMore" ng-click="loadMoreOptionsDirection()">
+										<bk-busy-indicator ng-if="optionsDirectionLoading" size="m"></bk-busy-indicator>
+										<span ng-if="!optionsDirectionLoading" class="sap-icon sap-icon--navigation-down-arrow" role="presentation"></span>
+										<span ng-if="!optionsDirectionLoading">More Options</span>
+									</bk-list-action-item>
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>

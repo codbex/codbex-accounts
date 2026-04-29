@@ -71,4 +71,5 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 	$scope.clearErrorMessage = () => {
 		$scope.errorMessage = null;
 	};
+
 });

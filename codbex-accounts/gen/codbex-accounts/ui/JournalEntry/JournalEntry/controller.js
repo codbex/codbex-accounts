@@ -102,6 +102,52 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 						$scope.data = [];
 						$scope.dataReset = false;
 					}
+					if (optionsAccountHasMore) {
+						const optionsAccountSearchValues = Array.from(new Set(response.data.map(e => e.Account)));
+						if (optionsAccountSearchValues.length > 0) {
+							$http.post('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts/search', {
+								conditions: [
+									{ propertyName: 'Id', operator: 'IN', value: optionsAccountSearchValues }
+								]
+							}).then((response) => {
+								$scope.optionsAccount.push(...response.data.map(e => ({
+									value: e.Id,
+									text: e.Name
+								})));
+							}, (error) => {
+								console.error(error);
+								const message = error.data ? error.data.message : '';
+								Dialogs.showAlert({
+									title: 'Account',
+									message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLoad', { message: message }),
+									type: AlertTypes.Error
+								});
+							});
+						}
+					}
+					if (optionsDirectionHasMore) {
+						const optionsDirectionSearchValues = Array.from(new Set(response.data.map(e => e.Direction)));
+						if (optionsDirectionSearchValues.length > 0) {
+							$http.post('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts/search', {
+								conditions: [
+									{ propertyName: 'Id', operator: 'IN', value: optionsDirectionSearchValues }
+								]
+							}).then((response) => {
+								$scope.optionsDirection.push(...response.data.map(e => ({
+									value: e.Id,
+									text: e.Name
+								})));
+							}, (error) => {
+								console.error(error);
+								const message = error.data ? error.data.message : '';
+								Dialogs.showAlert({
+									title: 'Direction',
+									message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLoad', { message: message }),
+									type: AlertTypes.Error
+								});
+							});
+						}
+					}
 					response.data.forEach(e => {
 						if (e.Date) {
 							e.Date = new Date(e.Date);
@@ -215,12 +261,25 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.optionsAccount = [];
 		$scope.optionsDirection = [];
 
+		let optionsAccountHasMore = true;
 
-		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts').then((response) => {
-			$scope.optionsAccount = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
+		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts/count').then((response) => {
+			const optionsAccountCount = response.data.count;
+			$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts').then((response) => {
+				$scope.optionsAccount = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+				optionsAccountHasMore = optionsAccountCount > $scope.optionsAccount.length;
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Account',
+					message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
 		}, (error) => {
 			console.error(error);
 			const message = error.data ? error.data.message : '';
@@ -230,12 +289,25 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				type: AlertTypes.Error
 			});
 		});
+		let optionsDirectionHasMore = true;
 
-		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts').then((response) => {
-			$scope.optionsDirection = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
+		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts/count').then((response) => {
+			const optionsDirectionCount = response.data.count;
+			$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts').then((response) => {
+				$scope.optionsDirection = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+				optionsDirectionHasMore = optionsDirectionCount > $scope.optionsDirection.length;
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Direction',
+					message: LocaleService.t('codbex-accounts:codbex-accounts-model.messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
 		}, (error) => {
 			console.error(error);
 			const message = error.data ? error.data.message : '';
