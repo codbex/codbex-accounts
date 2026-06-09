@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-accounts/gen/codbex-accounts/api/JournalEntry/JournalEntryController.ts';
+		EntityServiceProvider.baseUrl = '/services/java/codbex-accounts/gen/codbex_accounts/api/journalentry/JournalEntryController';
 	}])
 	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -105,7 +105,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					if (optionsAccountHasMore) {
 						const optionsAccountSearchValues = Array.from(new Set(response.data.map(e => e.Account)));
 						if (optionsAccountSearchValues.length > 0) {
-							$http.post('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts/search', {
+							$http.post('/services/java/codbex-accounts/gen/codbex_accounts/api/settings/AccountController/search', {
 								conditions: [
 									{ propertyName: 'Id', operator: 'IN', value: optionsAccountSearchValues }
 								]
@@ -128,7 +128,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					if (optionsDirectionHasMore) {
 						const optionsDirectionSearchValues = Array.from(new Set(response.data.map(e => e.Direction)));
 						if (optionsDirectionSearchValues.length > 0) {
-							$http.post('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts/search', {
+							$http.post('/services/java/codbex-accounts/gen/codbex_accounts/api/settings/JournalEntryDirectionController/search', {
 								conditions: [
 									{ propertyName: 'Id', operator: 'IN', value: optionsDirectionSearchValues }
 								]
@@ -263,9 +263,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 
 		let optionsAccountHasMore = true;
 
-		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts/count').then((response) => {
+		$http.get('/services/java/codbex-accounts/gen/codbex_accounts/api/settings/AccountController/count').then((response) => {
 			const optionsAccountCount = response.data.count;
-			$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts').then((response) => {
+			$http.get('/services/java/codbex-accounts/gen/codbex_accounts/api/settings/AccountController').then((response) => {
 				$scope.optionsAccount = response.data.map(e => ({
 					value: e.Id,
 					text: e.Name
@@ -291,9 +291,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		});
 		let optionsDirectionHasMore = true;
 
-		$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts/count').then((response) => {
+		$http.get('/services/java/codbex-accounts/gen/codbex_accounts/api/settings/JournalEntryDirectionController/count').then((response) => {
 			const optionsDirectionCount = response.data.count;
-			$http.get('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts').then((response) => {
+			$http.get('/services/java/codbex-accounts/gen/codbex_accounts/api/settings/JournalEntryDirectionController').then((response) => {
 				$scope.optionsDirection = response.data.map(e => ({
 					value: e.Id,
 					text: e.Name
