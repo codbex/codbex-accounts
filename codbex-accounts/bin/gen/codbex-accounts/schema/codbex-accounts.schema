@@ -1,0 +1,127 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_ACCOUNT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ACCOUNT_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "unique": true,
+                        "name": "ACCOUNT_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "unique": true,
+                        "name": "ACCOUNT_CODE"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "ACCOUNT_ACTIVE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_JOURNALENTRY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "JOURNALENTRY_ID"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "JOURNALENTRY_DATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "name": "JOURNALENTRY_ACCOUNT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOURNALENTRY_DIRECTION"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "JOURNALENTRY_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "JOURNALENTRY_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "JOURNALENTRY_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "JOURNALENTRY_UPDATEDBY"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_JOURNALENTRYDIRECTION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "JOURNALENTRYDIRECTION_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "unique": true,
+                        "name": "JOURNALENTRYDIRECTION_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "JOURNALENTRYDIRECTION_DIRECTION"
+                    }
+                ]
+            },
+            {
+                "name": "JournalEntry_Account",
+                "type": "foreignKey",
+                "table": "CODBEX_JOURNALENTRY",
+                "constraintName": "JournalEntry_Account",
+                "columns": "JOURNALENTRY_ACCOUNT",
+                "referencedTable": "CODBEX_ACCOUNT",
+                "referencedColumns": "ACCOUNT_ID"
+            },
+            {
+                "name": "JournalEntry_JournalEntryDirection",
+                "type": "foreignKey",
+                "table": "CODBEX_JOURNALENTRY",
+                "constraintName": "JournalEntry_JournalEntryDirection",
+                "columns": "JOURNALENTRY_DIRECTION",
+                "referencedTable": "CODBEX_JOURNALENTRYDIRECTION",
+                "referencedColumns": "JOURNALENTRYDIRECTION_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}

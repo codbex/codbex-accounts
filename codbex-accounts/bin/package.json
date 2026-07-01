@@ -1,0 +1,11 @@
+{
+    "name": "@codbex/codbex-accounts",
+    "version": "1.4.0",
+    "repository": {
+        "url": "https://github.com/codbex/codbex-accounts.git",
+        "type": "git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    }
+}

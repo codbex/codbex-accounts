@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
+
+    <head>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title config-title></title>
+        <script type="text/javascript" src="view.js"></script>
+        <meta name="platform-links" category="ng-view">
+		<script type="text/javascript" src="/services/web/dashboard/services/entity.js"></script>
+        <script type="text/javascript" src="controller.js"></script>
+    </head>
+
+    <body class="bk-vbox">
+        <bk-scrollbar class="bk-full-height">
+            <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
+                <bk-form-group label="{{formHeaders[action]}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idDate" ng-required="false" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_DATE' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--2 ">
+							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-accounts:codbex-accounts-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idDate"
+	                                name="Date"
+	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.Date"
+	                                ng-readonly="action === 'select'"
+	                                type="date">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idAccount" ng-required="true" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_ACCOUNT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--7 ">
+	                        <bk-combobox-input input-id="idAccount"
+	                            name="Account"
+	                            state="{{ forms.details['Account'].$valid ? '' : 'error' }}"
+	                            ng-required="true"
+	                            ng-model="entity.Account"
+	                            is-readonly="action === 'select'"
+	                            dropdown-items="optionsAccount"
+								ng-keyup="onOptionsAccountChange($event)"
+	                            placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputSearch' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_ACCOUNT)'} }}"
+								btn-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.showHide' | t:{'name':'Account'} }}" list-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.options' | t:{'name':'Account'} }}">
+								    <bk-list-action-item ng-if="optionsAccountHasMore" ng-click="loadMoreOptionsAccount()">
+										<bk-busy-indicator ng-if="optionsAccountLoading" size="m"></bk-busy-indicator>
+										<span ng-if="!optionsAccountLoading" class="sap-icon sap-icon--navigation-down-arrow" role="presentation"></span>
+										<span ng-if="!optionsAccountLoading">More Options</span>
+									</bk-list-action-item>
+	                        </bk-combobox-input>
+	                    </div>
+	                    <div class="fd-col fd-col--full">
+							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-accounts:codbex-accounts-model.defaults.add' | t }}" ng-click="createAccount()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-accounts:codbex-accounts-model.defaults.refresh' | t }}" ng-click="refreshAccount()" ng-hide="action === 'select'"></bk-button>
+						</div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idDirection" ng-required="false" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_DIRECTION' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--7 ">
+	                        <bk-combobox-input input-id="idDirection"
+	                            name="Direction"
+	                            state="{{ forms.details['Direction'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.Direction"
+	                            is-readonly="action === 'select'"
+	                            dropdown-items="optionsDirection"
+								ng-keyup="onOptionsDirectionChange($event)"
+	                            placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputSearch' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_DIRECTION)'} }}"
+								btn-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.showHide' | t:{'name':'Direction'} }}" list-aria-label="{{ 'codbex-accounts:codbex-accounts-model.aria.options' | t:{'name':'Direction'} }}">
+								    <bk-list-action-item ng-if="optionsDirectionHasMore" ng-click="loadMoreOptionsDirection()">
+										<bk-busy-indicator ng-if="optionsDirectionLoading" size="m"></bk-busy-indicator>
+										<span ng-if="!optionsDirectionLoading" class="sap-icon sap-icon--navigation-down-arrow" role="presentation"></span>
+										<span ng-if="!optionsDirectionLoading">More Options</span>
+									</bk-list-action-item>
+	                        </bk-combobox-input>
+	                    </div>
+	                    <div class="fd-col fd-col--full">
+							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-accounts:codbex-accounts-model.defaults.add' | t }}" ng-click="createDirection()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-accounts:codbex-accounts-model.defaults.refresh' | t }}" ng-click="refreshDirection()" ng-hide="action === 'select'"></bk-button>
+						</div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idCreatedAt" ng-required="false" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_CREATEDAT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-accounts:codbex-accounts-model.messages.error.incorrectInput' | t }}">
+								<bk-input id="idCreatedAt"
+	                                name="CreatedAt"
+	                                state="{{ forms.details['CreatedAt'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.CreatedAt"
+	                                ng-readonly="true"
+	                                type="text"
+	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_CREATEDAT)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idCreatedBy" ng-required="false" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_CREATEDBY' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['CreatedBy'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-accounts:codbex-accounts-model.messages.error.lengthMax' | t:{'max':'20.0'} }}">
+								<bk-input id="idCreatedBy"
+	                                name="CreatedBy"
+	                                state="{{ forms.details['CreatedBy'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.CreatedBy"
+	                                ng-readonly="true"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_CREATEDBY)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idUpdatedAt" ng-required="false" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_UPDATEDAT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['UpdatedAt'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-accounts:codbex-accounts-model.messages.error.incorrectInput' | t }}">
+								<bk-input id="idUpdatedAt"
+	                                name="UpdatedAt"
+	                                state="{{ forms.details['UpdatedAt'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.UpdatedAt"
+	                                ng-readonly="true"
+	                                type="text"
+	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_UPDATEDAT)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idUpdatedBy" ng-required="false" colon="true">{{ 'codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_UPDATEDBY' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['UpdatedBy'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-accounts:codbex-accounts-model.messages.error.lengthMax' | t:{'max':'20.0'} }}">
+								<bk-input id="idUpdatedBy"
+	                                name="UpdatedBy"
+	                                state="{{ forms.details['UpdatedBy'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.UpdatedBy"
+	                                ng-readonly="true"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-accounts:codbex-accounts-model.messages.inputEnter' | t:{'name':'$t(codbex-accounts:codbex-accounts-model.t.JOURNALENTRY_UPDATEDBY)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                </bk-form-group>
+            </bk-fieldset>
+        </bk-scrollbar>
+
+		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
+			<bk-bar-right>
+				<bk-bar-element>
+					<bk-button ng-if="action === 'create'" label="{{'codbex-accounts:codbex-accounts-model.defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action !== 'create'" label="{{'codbex-accounts:codbex-accounts-model.defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
+				</bk-bar-element>
+				<bk-bar-element>
+					<bk-button label="{{ 'codbex-accounts:codbex-accounts-model.defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
+				</bk-bar-element>
+			</bk-bar-right>
+		</bk-bar>
+		<bk-bar bar-design="footer" compact="true" ng-show="action === 'select' && entityActions.length && entity.Id">
+			<bk-bar-right>
+				<bk-bar-element ng-repeat="action in entityActions track by $index">
+					<bk-button label="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerEntityAction(action)"></bk-button>
+				</bk-bar-element>
+			</bk-bar-right>
+		</bk-bar>
+		<theme></theme>
+    </body>
+
+</html>
