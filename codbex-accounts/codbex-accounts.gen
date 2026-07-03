@@ -1,15 +1,17 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://www.codbex.com",
-  "title": "Account Management Application",
-  "description": "Managing account data",
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Accounts Management Module",
+  "description": "Managing Accounts Data",
   "projectName": "codbex-accounts",
   "workspaceName": "workspace",
   "filePath": "codbex-accounts.model",
-  "templateId": "template-application-angular-v2/template/template.js",
+  "templateId": "template-application-angular-java/template/template.js",
   "fileName": "codbex-accounts",
   "genFolderName": "codbex-accounts",
+  "javaRuntime": true,
+  "javaGenFolderName": "codbex_accounts",
   "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
@@ -97,6 +99,8 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -124,6 +128,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -152,6 +157,8 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -178,6 +185,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "boolean",
           "dataTypeTypescript": "boolean",
+          "dataTypeJavaClass": "Boolean",
           "inputRule": ""
         }
       ],
@@ -206,6 +214,7 @@
       "tooltip": "Account",
       "type": "SETTING",
       "dataSource": "DefaultDB",
+      "javaPerspectiveName": "settings",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -238,6 +247,8 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -264,6 +275,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
+          "dataTypeJavaClass": "java.time.LocalDate",
           "isDateType": true,
           "inputRule": ""
         },
@@ -293,10 +305,12 @@
           "isCalculatedProperty": false,
           "isReadOnlyProperty": false,
           "widgetLabel": "Account",
-          "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts",
-          "widgetDropdownControllerUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts",
+          "widgetDropdownUrl": "/services/java/codbex-accounts/gen/codbex_accounts/api/settings/AccountController",
+          "widgetDropdownControllerUrl": "/services/java/codbex-accounts/gen/codbex_accounts/api/settings/AccountController",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -325,10 +339,12 @@
           "isCalculatedProperty": false,
           "isReadOnlyProperty": false,
           "widgetLabel": "Direction",
-          "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts",
-          "widgetDropdownControllerUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts",
+          "widgetDropdownUrl": "/services/java/codbex-accounts/gen/codbex_accounts/api/settings/JournalEntryDirectionController",
+          "widgetDropdownControllerUrl": "/services/java/codbex-accounts/gen/codbex_accounts/api/settings/JournalEntryDirectionController",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -355,6 +371,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
+          "dataTypeJavaClass": "java.time.Instant",
           "isDateType": true,
           "inputRule": ""
         },
@@ -383,6 +400,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -411,6 +429,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
+          "dataTypeJavaClass": "java.time.Instant",
           "isDateType": true,
           "inputRule": ""
         },
@@ -439,6 +458,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -471,6 +491,7 @@
       "tooltip": "JournalEntry",
       "type": "PRIMARY",
       "dataSource": "DefaultDB",
+      "javaPerspectiveName": "journalentry",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -501,6 +522,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
+          "dataTypeJavaClass": "java.time.LocalDate",
           "isDateType": true,
           "inputRule": ""
         },
@@ -531,10 +553,12 @@
             "isCalculatedProperty": false,
             "isReadOnlyProperty": false,
             "widgetLabel": "Account",
-            "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountService.ts",
-            "widgetDropdownControllerUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts",
+            "widgetDropdownUrl": "/services/java/codbex-accounts/gen/codbex_accounts/api/settings/AccountController",
+            "widgetDropdownControllerUrl": "/services/java/codbex-accounts/gen/codbex_accounts/api/settings/AccountController",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
+            "dataTypeJavaClass": "Integer",
+            "isNumberType": true,
             "inputRule": ""
           },
           {
@@ -563,10 +587,12 @@
             "isCalculatedProperty": false,
             "isReadOnlyProperty": false,
             "widgetLabel": "Direction",
-            "widgetDropdownUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionService.ts",
-            "widgetDropdownControllerUrl": "/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts",
+            "widgetDropdownUrl": "/services/java/codbex-accounts/gen/codbex_accounts/api/settings/JournalEntryDirectionController",
+            "widgetDropdownControllerUrl": "/services/java/codbex-accounts/gen/codbex_accounts/api/settings/JournalEntryDirectionController",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
+            "dataTypeJavaClass": "Integer",
+            "isNumberType": true,
             "inputRule": ""
           },
           {
@@ -593,6 +619,7 @@
             "widgetDropdownControllerUrl": "",
             "dataTypeJava": "timestamp",
             "dataTypeTypescript": "Date",
+            "dataTypeJavaClass": "java.time.Instant",
             "isDateType": true,
             "inputRule": ""
           },
@@ -621,6 +648,7 @@
             "widgetDropdownControllerUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
+            "dataTypeJavaClass": "String",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -649,6 +677,7 @@
             "widgetDropdownControllerUrl": "",
             "dataTypeJava": "timestamp",
             "dataTypeTypescript": "Date",
+            "dataTypeJavaClass": "java.time.Instant",
             "isDateType": true,
             "inputRule": ""
           },
@@ -677,6 +706,7 @@
             "widgetDropdownControllerUrl": "",
             "dataTypeJava": "string",
             "dataTypeTypescript": "string",
+            "dataTypeJavaClass": "String",
             "minLength": 0,
             "maxLength": 20,
             "inputRule": ""
@@ -712,6 +742,8 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -739,6 +771,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -767,6 +800,8 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         }
       ],
@@ -793,6 +828,7 @@
       "tooltip": "JournalEntryDirection",
       "type": "SETTING",
       "dataSource": "DefaultDB",
+      "javaPerspectiveName": "settings",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"

@@ -124,7 +124,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 	$scope.loadMoreOptionsAccount = () => {
 		const limit = 20;
 		$scope.optionsAccountLoading = true;
-		$http.get(`/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts?$limit=${limit}&$offset=${++loadMoreOptionsAccountCounter * limit}`)
+		$http.get(`/services/java/codbex-accounts/gen/codbex_accounts/api/settings/AccountController?$limit=${limit}&$offset=${++loadMoreOptionsAccountCounter * limit}`)
 		.then((response) => {
 			const optionValues = allValuesAccount.map(e => e.value);
 			const resultValues = response.data.map(e => ({
@@ -174,7 +174,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 				}
 			})
 			if (!cacheHit) {
-				$http.post('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/AccountController.ts/search', {
+				$http.post('/services/java/codbex-accounts/gen/codbex_accounts/api/settings/AccountController/search', {
 					conditions: [
 						{ propertyName: 'Name', operator: 'LIKE', value: `${event.originalEvent.target.value}%` }
 					]
@@ -213,7 +213,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 	$scope.loadMoreOptionsDirection = () => {
 		const limit = 20;
 		$scope.optionsDirectionLoading = true;
-		$http.get(`/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts?$limit=${limit}&$offset=${++loadMoreOptionsDirectionCounter * limit}`)
+		$http.get(`/services/java/codbex-accounts/gen/codbex_accounts/api/settings/JournalEntryDirectionController?$limit=${limit}&$offset=${++loadMoreOptionsDirectionCounter * limit}`)
 		.then((response) => {
 			const optionValues = allValuesDirection.map(e => e.value);
 			const resultValues = response.data.map(e => ({
@@ -263,7 +263,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 				}
 			})
 			if (!cacheHit) {
-				$http.post('/services/ts/codbex-accounts/gen/codbex-accounts/api/Settings/JournalEntryDirectionController.ts/search', {
+				$http.post('/services/java/codbex-accounts/gen/codbex_accounts/api/settings/JournalEntryDirectionController/search', {
 					conditions: [
 						{ propertyName: 'Name', operator: 'LIKE', value: `${event.originalEvent.target.value}%` }
 					]
