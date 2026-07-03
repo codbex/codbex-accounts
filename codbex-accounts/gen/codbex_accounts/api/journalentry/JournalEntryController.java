@@ -4,16 +4,15 @@ import gen.codbex_accounts.data.journalentry.JournalEntryEntity;
 import gen.codbex_accounts.data.journalentry.JournalEntryRepository;
 
 import org.eclipse.dirigible.components.api.security.UserFacade;
-import org.eclipse.dirigible.engine.java.annotations.Documentation;
-import org.eclipse.dirigible.engine.java.annotations.Inject;
-import org.eclipse.dirigible.engine.java.annotations.http.Body;
-import org.eclipse.dirigible.engine.java.annotations.http.Controller;
-import org.eclipse.dirigible.engine.java.annotations.http.Delete;
-import org.eclipse.dirigible.engine.java.annotations.http.Get;
-import org.eclipse.dirigible.engine.java.annotations.http.PathParam;
-import org.eclipse.dirigible.engine.java.annotations.http.Post;
-import org.eclipse.dirigible.engine.java.annotations.http.Put;
-import org.eclipse.dirigible.engine.java.annotations.http.QueryParam;
+import org.eclipse.dirigible.sdk.platform.Documentation;
+import org.eclipse.dirigible.sdk.http.Body;
+import org.eclipse.dirigible.sdk.http.Controller;
+import org.eclipse.dirigible.sdk.http.Delete;
+import org.eclipse.dirigible.sdk.http.Get;
+import org.eclipse.dirigible.sdk.http.PathParam;
+import org.eclipse.dirigible.sdk.http.Post;
+import org.eclipse.dirigible.sdk.http.Put;
+import org.eclipse.dirigible.sdk.http.QueryParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -30,8 +29,11 @@ public class JournalEntryController {
 
     private static final Set<String> FILTER_FIELDS = Set.of("Id", "Date", "Account", "Direction", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy");
 
-    @Inject
-    private JournalEntryRepository repository;
+    private final JournalEntryRepository repository;
+
+    public JournalEntryController(JournalEntryRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     @Documentation("List JournalEntry")

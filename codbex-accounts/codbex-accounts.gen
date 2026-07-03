@@ -100,6 +100,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -157,6 +158,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -246,6 +248,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -307,6 +310,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -340,6 +344,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -553,6 +558,7 @@
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "dataTypeJavaClass": "Integer",
+            "isNumberType": true,
             "inputRule": ""
           },
           {
@@ -586,6 +592,7 @@
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "dataTypeJavaClass": "Integer",
+            "isNumberType": true,
             "inputRule": ""
           },
           {
@@ -736,6 +743,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         },
         {
@@ -793,6 +801,7 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "dataTypeJavaClass": "Integer",
+          "isNumberType": true,
           "inputRule": ""
         }
       ],
